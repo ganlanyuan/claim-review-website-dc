@@ -1,0 +1,59 @@
+
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../Pacifico-Regular.ttf'); /* IE9 Compat Modes */
+}
+.clean{width:100%; display: block; height:0px; clear:both; float:none;content: ""}
+.how_to{font-size: 14px; font-style: italic; text-decoration: underline;}
+.textbox .bottomtext{text-align:left;font-style:italic; font-size:16px; width:100%; margin-top: 50px;padding-bottom: 40px; }
+.textbox{text-align: left; padding-left:52px;padding-top: 30px;float: left; width: 100%;}
+.textbox p{font-size:20px; margin-bottom: 0px;}
+.textbox .searchbar{width: 400px; margin-top: 20px; }
+.textbox .ant-btn-primary{background-color: #DB155B; border-color: #DB155B;}
+.textbox .ant-input-group .ant-input{background: #eee}
+.innerwrapper{position: relative; z-index: 10; padding-bottom: 60px;}
+.backimg{position: absolute;right:0px; bottom:0px; z-index: 3; bottom:30px; }
+.backimg img{ width:500px }
+.questitle{font-size: 20px; font-weight: bold; color:#DB155B;margin-bottom: 0px;}
+.opt {width: 60%;}
+.opt span{font-size:16px;}
+.feedwrapper{padding-left: 52px; margin-bottom: 30px;}
+.feedbox .mybtn{background-color: #DB155B; font-size:18px; height: 40px; width: 200px}
+.mybtn span{line-height: 40px;}
+.contentbox{ margin-bottom: 30px; }
+.feedbox{padding-top: 30px; padding-bottom: 40px;}
+.feedbox .ant-radio-wrapper{    border-radius: 5px;
+    background: #eee;
+    padding: 10px;margin-top:10px;}
+.anticon-star{margin-top:20px;}
+#reviewb{padding-left:52px; padding-right: 52px}
+.reviewCardStyle{font-size:16px; width: 700px; margin-bottom: 0px;}
+.feedbox .ant-radio-wrapper span{font-size:16px;}
+.feedbox .myinput{width: 400px;margin-bottom: 20px;}
+.anticon-star svg{width: 1.5em; height:1.5em;}
+.contentbox .ant-upload{}
+.thankyou{padding-top:40px; padding-bottom: 190px;}
+.thankyou p{font-size: 28px; line-height:60px;margin:0px !important;color:green; font-weight: bold; font-style: italic;}
+.contentbox .ant-upload-list{margin-bottom: 20px; width: 300px}
+.feedbox .mytextarea{font-size:18px; width: 700px; height: 100px;}
+
+
+@media screen and (max-width: 768px) {
+.textbox{padding-left:0px;}
+.backimg{display: none;}
+.opt {width: 100%;}
+.feedbox .myinput{width: 100%;}
+#reviewb{padding-left:0px; padding-right: 0px;}
+.reviewCardStyle{width: 100%}
+.feedwrapper{padding-left:0px;}
+.toptitle h1{padding-left: 22px;}
+.feedbox .mybtn{width: 100%;}
+.textbox .searchbar{width: 100%; margin-top: 20px; }
+.forthanking{display: block}
+.thankyou{padding-bottom: 270px; padding-top:10px;}
+.thankyou p{line-height: 40px;}
+.feedboxb{padding-top:0px; padding-bottom: 10px;}
+}
+
