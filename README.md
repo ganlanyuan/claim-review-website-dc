@@ -26,7 +26,7 @@ service firebase.storage {
 3. change remote url of your local repo from `template` to your newly created github repo. eg `git remote set-url origin [new github url]`
 4. change `.env-example` to `.env`.
 5. add environment variable `REACT_APP_remoteHost` for remote host. eg. https://[subdomain].sellerprogitpro.com.
-6. Add all firebase related environment variables used in `remote-host.js` [where to get](https://support.google.com/firebase/answer/7015592)  **Project Overview Gear** -> **project settings** -> **General** -> **your app** -> **Firebase SDK snippet** -> **config**
+6. Add all firebase related environment variables to `.env` file [where to get](https://support.google.com/firebase/answer/7015592)  **Project Overview Gear** -> **project settings** -> **General** -> **your app** -> **Firebase SDK snippet** -> **config**
 7. install firebase tools `npm install -g firebase-tools`
 8. init firebase `firebase init`, note that project root is `build` directory
 9. build project `npm run build`
