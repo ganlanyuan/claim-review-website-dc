@@ -11,7 +11,7 @@ class UploadImage extends React.Component {
 
   handleChange = info => {
     let fileList = [...info.fileList];
-
+    console.log(info);
     // 1. Read from response and show file
     let fileNameList = []
 
@@ -19,7 +19,7 @@ class UploadImage extends React.Component {
       if (file.response) {
         // Component will show file.url as link
         file.url = file.response.url;
-        fileNameList.push(file.response.fileName)
+        fileNameList.push(file.response.url)
       }
       return file;
     });
@@ -35,19 +35,21 @@ class UploadImage extends React.Component {
   
 
   render() {
-    const customRequest = ({onProgress, onSuccess, file}) => {
-      FirebaseFileUploader.upload(file).then((snapshot) => {
-        console.log(snapshot);
+    const customRequest = ({onSuccess, file}) => {
+      FirebaseFileUploader.upload(file).then((uploadedFile) => {
+        console.log(uploadedFile);
+        onSuccess(uploadedFile);
       })
     };
 
-    const props = {
+    const uploadProps = {
+      onChange: this.handleChange,
       customRequest: customRequest
     };
 
     
     return (
-      <Upload {...props} fileList={this.state.fileList}>
+      <Upload {...uploadProps} fileList={this.state.fileList}>
         <Button>
           <Icon type="upload" /> Upload your review screenshot
         </Button>

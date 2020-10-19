@@ -15,12 +15,19 @@ class FirebaseFileUploader {
   static upload(file) {
     const storageRef = firebase.storage().ref();
     const randPrefix = uuidv4();
-    const ref = storageRef.child(`claim-review/${randPrefix}-${file.name}`);
+    const name = `${randPrefix}-${file.name}`;
+    const ref = storageRef.child(`claim-review/${name}`);
     return this.signInAnonymously().then(() => {
       return ref.put(file)
     }).then(snapshot => {
+      const uid = -Math.random() * 10000;
       const {bucket, fullPath} = snapshot.metadata;
-      return `${HOST}/${bucket}/${fullPath}`;
+      const url = `${HOST}/${bucket}/${fullPath}`;
+      const response = {
+        url,
+        fileName: name
+      };
+      return response;
     });
   }
 }
