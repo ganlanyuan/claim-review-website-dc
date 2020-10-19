@@ -22,7 +22,7 @@ service firebase.storage {
 
 # Project Setup
 1. get template `git clone git@github.com:SFPL-IT/claim-review-website-template.git claim-review-website-[subdomain]`
-2. create a github repo for this project named as `laim-review-website-[subdomain]`
+2. create a github repo for this project named as `claim-review-website-[subdomain]`
 3. change remote url of your local repo from `template` to your newly created github repo. eg `git remote set-url origin [new github url]`
 4. change `.env-example` to `.env`.
 5. add environment variable `REACT_APP_remoteHost` for remote host. eg. https://[subdomain].sellerprogitpro.com.
