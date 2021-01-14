@@ -1,8 +1,9 @@
 import config from 'react-global-configuration';
+
 config.set({
-    source: 'thank2u.com',
-    amount: '10$',
-    email: 'info@thank2u.com'
+    source: process.env.REACT_APP_review_source,
+    amount: process.env.REACT_APP_giftcard_amount,
+    email: process.env.REACT_APP_contact_email,
 });
 
 

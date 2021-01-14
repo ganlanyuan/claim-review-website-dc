@@ -71,7 +71,7 @@ class GetReview extends Component {
     review: 0,
     benefit: "",
     submit: 0,
-    reward: defaultReward,
+    reward: config.get('amount'),
     feedback: 0,
     period: "",
     userName: "",
@@ -145,7 +145,7 @@ class GetReview extends Component {
       } else if (response.data.data.order.redeem === null) {
         this.setState({
           order: response.data.data.order,
-          reward: response.data.data.order.reward || defaultReward
+          reward: response.data.data.order.reward || this.state.reward
         })
         notification['success']({
           message: 'Notification Title',
@@ -264,7 +264,7 @@ class GetReview extends Component {
       if (this.validateEmail(this.state.email)) {
         var d = new Date();
         var today = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
-        let url = `${remoteUrl}/graphql?query=mutation%20addRedeem%20{addRedeem(requestDate:"${today}",seller_id:"${this.state.order.seller_id}",AmazonOrderId:"${this.state.order.AmazonOrderId}",asin:"${this.state.order.items[0].ASIN}",country:"${this.state.order.items[0].country}",source:"${config.get('source')}",amount:"${config.get('amount')}",usingTime:"${this.state.period}",star:${this.state.star},how_to_help:"${this.state.feedbackText}",name:"${this.state.userName}",email:"${this.state.email}",newsletter:true,attachments:"${this.state.path}")%20{id}}`
+        let url = `${remoteUrl}/graphql?query=mutation%20addRedeem%20{addRedeem(requestDate:"${today}",seller_id:"${this.state.order.seller_id}",AmazonOrderId:"${this.state.order.AmazonOrderId}",asin:"${this.state.order.items[0].ASIN}",country:"${this.state.order.items[0].country}",source:"${config.get('source')}",amount:"${this.state.reward}",usingTime:"${this.state.period}",star:${this.state.star},how_to_help:"${this.state.feedbackText}",name:"${this.state.userName}",email:"${this.state.email}",newsletter:true,attachments:"${this.state.path}")%20{id}}`
         axios.get(url).then(response => {
           document.querySelector("#reviewWrap").removeChild(document.querySelector("#reviewWrap").firstChild)
           this.setState({
