@@ -1,60 +1,57 @@
 import React, { Component } from 'react';
 import {
-  Input,
+  Input,Icon,Button,notification
 } from 'antd';
-import Responsive from 'react-responsive-decorator';
-import config from 'react-global-configuration';
-import cat from '../backcat.png';
+import Responsive from 'react-responsive-decorator'
+import config from 'react-global-configuration'
+import cat from '../backcat.png'
 import './component.css'
-const orderCardDeskStyle = {
-  color : '#333',
-  fontSize : 20,
-  width: '100%',
-  paddingLeft: 60,
-  paddingRight: 60,
-  overflowX : 'auto',
-  overflowY : 'auto',
-}
-const orderCardCellStyle = {
-  color : '#333',
-  fontSize : 20,
-  width: '100%',
-  overflowX : 'auto',
-  overflowY : 'auto',
-}
-const orderCardSearchDeskStyle = {
-  color : '#333',
-  fontSize : 20,
-  paddingLeft: '30%',
-  paddingRight: '30%',
-  overflowX : 'auto',
-  overflowY : 'auto',
-}
-const orderCardSearchCellStyle = {
-  color : '#333',
-  fontSize : 20,
-  overflowX : 'auto',
-  overflowY : 'auto',
-}
-const orderCardSearchTextDeskStyle = {
-  textAlign: 'center',
-  color : '#333',
-  fontSize : 20,
-  paddingLeft: '20%',
-  paddingRight: '20%',
-  overflowX : 'auto',
-  overflowY : 'auto',
-}
-const orderCardSearchTextCellStyle = {
-  textAlign: '#333',
-  color : 'white',
-  fontSize : 20,
-  overflowX : 'auto',
-  overflowY : 'auto',
-}
+
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import { ActionCreators } from '../actions'
+
 class OrderId extends Component {
-  state = {
-    isMobile: false
+  constructor(props){
+    super(props);
+    this.state={
+      amazonOrderId:this.props.order_info['AmazonOrderId'],
+      email:this.props.user_info['email']
+    }
+  }
+   
+  ValidateEmail(mail) 
+  {
+   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
+    {
+      return (true)
+    }
+       notification['error']({
+        message: 'You have entered an invalid email address!'
+      })
+      return (false)
+  }
+
+  checkOrderId(){
+    var orderId = this.state.amazonOrderId
+    var email = this.state.email
+    if (this.ValidateEmail(email)){
+      orderId = orderId.replace(/[^0-9]/g, '');
+      var newOrderId = orderId.slice(0,3) + '-' + orderId.slice(3,10) + '-' + orderId.slice(10,17);
+      this.props.sendOrderId(newOrderId,email)
+    }
+  }
+
+  handleEmailChange = e =>{
+    this.setState({
+      email: e.target.value,
+    })
+  }
+
+  handleAmazonOrderIdChange = e =>{
+    this.setState({
+      amazonOrderId: e.target.value,
+    })
   }
 
   render() {
@@ -64,29 +61,53 @@ class OrderId extends Component {
 
     return (
       <div className = "textbox">
-      <div className="innerwrapper">
-      <p>Please enter your <b>Amazon ORDER ID</b> here.</p>
-      <p style={{fontSize:"16px"}}>ORDER ID example: 123-1234567-1234567.</p>
-        <a rel="noreferrer" style={{fontSize:"18px",display:"block",marginTop:"40px",fontStyle:"italic",textDecoration:"underline"}} href="https://www.amazon.com/gp/css/order-history?ie=UTF8&amp;amp;ref_=nav_nav_orders_first" target="_blank">Click here to find my orders »</a>
 
-        <Search
-          className="searchbar"
-          placeholder="Your Amazon Order ID"
-          enterButton="Search"
-          size="large"
-          onSearch={
-            // value => this.props.checkOrderId('113-5621044-3121068')
-            value => this.props.checkOrderId(value)
+      <p>Please enter your <b>Amazon ORDER ID</b> here.</p>
+      <p style={{fontSize:"14px"}}>ORDER ID example: 123-1234567-1234567.</p>
+        <a rel="noreferrer" style={{fontSize:"16px",display:"block",marginTop:"40px",fontStyle:"italic",textDecoration:"underline"}} href="https://www.amazon.com/gp/css/order-history?ie=UTF8&amp;amp;ref_=nav_nav_orders_first" target="_blank">Click here to find my orders »</a>
+
+  <Input
+          onChange = {
+            value => this.handleAmazonOrderIdChange(value)
           }
+          className="searchbar"
+          size='large'
+          value = {this.state.amazonOrderId}
+          placeholder="Enter your Amazon Order ID"
+          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+        />
+      <div className="clear"></div>
+
+  <Input
+          onChange = {
+            value => this.handleEmailChange(value)
+          }
+          className="searchbar"
+          size='large'
+          value = {this.state.email}
+          placeholder="Enter your Email"
+          prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
         />
   <br/>
-  
+  <div className="clear"></div>
+ <Button type="primary" style={{width:"100px",height:"40px",fontSize:"16px",marginTop:"20px"}} onClick = {()=>this.checkOrderId()}>Search</Button>
+   <br/>
+  <div className="backimg"><img src={cat}/></div>
         <p className="bottomtext">Please feel free to contact us if there are any problems. <br/>Email address: {config.get('email')}</p>
-        </div>
-        <div className="backimg"><img src={cat}/></div>
       </div>
     );
   }
 }
 
-export default  Responsive(OrderId);
+function mapStateToProps(state){
+  return{
+    order_info:state.order_info,
+    step_info:state.step_info,
+    user_info:state.user_info
+  }
+}
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+export default connect(mapStateToProps,mapDispatchToProps)(OrderId);
+
