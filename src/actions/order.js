@@ -22,6 +22,7 @@ function setOrderInfo(response) {
 export function sendOrderId(order_id,email){
 
   return (dispatch,getState) => {
+    console.log(remoteUrl)
     var request_url = `${remoteUrl}/graphql?query={order(amazon_order_id:%20%22${order_id}%22)%20{seller_id%20AmazonOrderId%20redeem%20{requestDate}%20items%20{ASIN%20country%20ItemPriceUSD}%20reward}}`
 
     return axios.get(request_url).then((response)=>{
@@ -97,11 +98,25 @@ export function setPeriod(period){
   }
 }
 
-export function goFeedback2(star,period){
+export function goNegative (star,period){
   return (dispatch,getState) => {
     dispatch(setStar(star))
     dispatch(setPeriod(period))
-    dispatch(push('feedback2'))
+    dispatch(push('negativeReview'))
+  }
+}
+
+export function gobenefit(star,period){
+  return (dispatch,getState) => {
+    dispatch(setStar(star))
+    dispatch(setPeriod(period))
+    dispatch(push('benefit'))
+  }
+}
+
+export function gotoGetBenefit(){
+  return (dispatch,getState) => {
+    dispatch(push('getbenefit'))
   }
 }
 
@@ -180,12 +195,12 @@ export function send_feedback(reward,username,email){
   return (dispatch,getState) => {
       var request_url = get_feedback_url(getState)
       dispatch(push('SuccessBanner'))
-    axios.get(request_url).then(response => {
-      notification['success']({
-        message: 'Got It!',
-        description:
-          'Thank you for your review and information, we will contact you as soon as possible',
-      });
-    })
+    // axios.get(request_url).then(response => {
+    //   notification['success']({
+    //     message: 'Got It!',
+    //     description:
+    //       'Thank you for your review and information, we will contact you as soon as possible',
+    //   });
+    // })
     }
 }

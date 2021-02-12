@@ -119,7 +119,7 @@ class NegtiveReview extends Component {
             }
             className="myinput"
             size='large'
-            disabled = {true}
+          
             value = {this.props.user_info['email']}
             placeholder="Enter your Email"
             prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}

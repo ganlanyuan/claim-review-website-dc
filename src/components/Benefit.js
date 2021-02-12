@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'
 
-class GetYourBenefit extends Component {
+class Benefit extends Component {
 
   constructor(props){
     super(props);
@@ -47,7 +47,8 @@ class GetYourBenefit extends Component {
 
         this.props.setUserInfo(this.state.userName,this.state.email)
         this.props.setBenefit(this.state.benefit)
-        this.props.send_feedback()
+        // this.props.send_feedback()
+        this.props.gotoGetBenefit()
       } else {
         notification['error']({
           message: 'Check your email!',
@@ -132,9 +133,9 @@ class GetYourBenefit extends Component {
           onChange = {
             value => this.handleEmailChange(value)
           }
-          className="frozeninput"
+          className="myinput"
           size='large'
-          disabled = {true}
+       
           value = {this.state.email}
           placeholder="Enter your Email"
           prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -142,6 +143,9 @@ class GetYourBenefit extends Component {
             <br/>
         <Button type="primary" style={{marginTop:"20px"}} className="mybtn" onClick={this.handleInformationSubmit.bind(this)}>Submit</Button>
         <Button type="default" className="mydefaultbtn" onClick={this.goback.bind(this)}>Go Back </Button>
+          <p class="bottomtext" style={{marginTop:"20px",width:"400px"}}><strong>{process.env.REACT_APP_review_source}</strong> is the sole owner of information collected from its customers. We will not sell or share this information with third parties in ways different from what is disclosed in our Privacy Policy.</p>
+
+
     </div>
 
 
@@ -161,4 +165,4 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
-export default connect(mapStateToProps,mapDispatchToProps)(GetYourBenefit);
+export default connect(mapStateToProps,mapDispatchToProps)(Benefit);

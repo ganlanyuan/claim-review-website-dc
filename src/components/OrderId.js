@@ -78,22 +78,12 @@ class OrderId extends Component {
         />
       <div className="clear"></div>
 
-  <Input
-          onChange = {
-            value => this.handleEmailChange(value)
-          }
-          className="searchbar"
-          size='large'
-          value = {this.state.email}
-          placeholder="Enter your Email"
-          prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-        />
   <br/>
   <div className="clear"></div>
  <Button type="primary" style={{width:"100px",height:"40px",fontSize:"16px",marginTop:"20px"}} onClick = {()=>this.checkOrderId()}>Search</Button>
    <br/>
   <div className="backimg"><img src={cat}/></div>
-        <p className="bottomtext">Please feel free to contact us if there are any problems. <br/>Email address: {config.get('email')}</p>
+        <p className="bottomtext">Please feel free to contact us if there are any problems. <br/>Email address: {process.env.REACT_APP_contact_email}</p>
       </div>
     );
   }

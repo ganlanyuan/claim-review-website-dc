@@ -41,7 +41,7 @@ class SuccessBanner extends Component {
 
           <li><label className="labela">Usage Period:</label> <p>{this.props.order_info['period']}</p></li>
           <li><label className="labela">Your Rating:</label><Rate tooltips={desc} disabled={true}  value={this.props.order_info['star']} /></li>
-          {this.props.order_info['star'] >= 4 ? <li><label className="labela">Your review screenshot:</label><UploadImage className="uploadimage" upload_allowed={false}/></li> : null}
+         
 
           <li>{this.getReward()}</li>
         </ul>

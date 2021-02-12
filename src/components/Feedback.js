@@ -39,7 +39,12 @@ class Feedback extends Component {
   checkFeedback(){
 
     if (this.state.star > 0 && this.state.period !== "") {
-      this.props.goFeedback2(this.state.star,this.state.period)
+      if (this.state.star<4){
+        this.props.goNegative(this.state.star,this.state.period)
+        return
+      }
+      this.props.gobenefit(this.state.star,this.state.period)
+
     } else {
       notification['error']({
         message: 'Notification Title',

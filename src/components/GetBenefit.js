@@ -8,7 +8,7 @@ import { ActionCreators } from '../actions'
 import PositiveReview from './PositiveReview'
 import NegtiveReview from './NegtiveReview'
 
-class Feedback2 extends Component {
+class GetBenefit extends Component {
   render() {
 
     return (
@@ -31,4 +31,4 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
-export default connect(mapStateToProps,mapDispatchToProps)(Feedback2);
+export default connect(mapStateToProps,mapDispatchToProps)(GetBenefit);

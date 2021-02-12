@@ -9,6 +9,7 @@ import {
   Col,
 } from 'antd';
 import cat from '../backcat.png';
+import screenshota from '../screenshot.jpg';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'
@@ -50,18 +51,20 @@ class PositiveReview extends Component {
   }
 
   submitReview(){
-    if (this.props.order_info['imagelist'].length > 0) {
+    this.props.send_feedback()
+    // if (this.props.order_info['imagelist'].length > 0) {
 
-      message.success('Thank you for your feedback.')
-      this.props.push('benefit')
-    } else {
-      notification['error']({
-        message: 'Notification Title',
-        description:
-          <div><p>Please upload the screenshot of your review</p>
-          </div>
-      });
-    }
+    //   message.success('Thank you for your feedback.')
+    //   // this.props.push('benefit')
+    //   this.props.send_feedback()
+    // } else {
+    //   notification['error']({
+    //     message: 'Notification Title',
+    //     description:
+    //       <div><p>Please upload the screenshot of your review</p>
+    //       </div>
+    //   });
+    // }
   }
 
 
@@ -75,24 +78,30 @@ class PositiveReview extends Component {
     return (
       <div id='reviewb' className="feedbox">
       <div className="contentbox">
-        <p className="reviewCardStyle">
-          Thank you! We are so excited you came for your Benefit! </p>
+        <p className="reviewCardStyle1">
+         Dear customer, thank you so much for your precious feedback about our product! We have recorded it and will continue to improve our product according to your suggestions!
 
-         <p className="reviewCardStyle"> You can choose to receive either a <strong>${this.getRewardPrice()} amazon gift card </strong> OR <strong>the same product</strong> (for free) </p>
+ </p>
 
-         <p className="reviewCardStyle">when you complete these steps. We truly appreciate your review on Amazon as it helps us immensely!</p>
-         <p className="reviewCardStyle">Please kindly support our growing business by <strong>leaving us 5 stars</strong>.</p>
-         <p className="reviewCardStyle">Please save your review screenshot and return here to upload it, </p>
-         <p className="reviewCardStyle">so that you can unlock your benefit! </p>
-         <p className="reviewCardStyle">Thank you for your business and your time!
-        </p>
+ <p className="reviewCardStyle1">We are a newly start up business, with several young staff working together, trying everything possible to provide the best products and the most satisfying services to our customers. But as you may not know, low rating might cause Amazon to limit the selling rights of our new store, so we will never have any chance to develop and improve our business any more.
+</p>
 
-        <Button type="primary" style={{marginTop:"30px"}}  className="mybtn"  target="_blank" href={`https://www.amazon.${country}/review/create-review/?asin=${asin}%3A5`}>Leave Your Review</Button>
+<p className="reviewCardStyle1">In this case, we want to kindly ask, could you do us a favor to <strong>leave us a 5-star review</strong> on Amazon? It will greatly help us to serve you better! Extra <strong>CDN$5</strong> Bonus will be given if you could include a video or 3-5 photos in your review.
+</p>
 
+
+        <Button type="primary" style={{marginTop:"20px",marginBottom:"20px"}}  className="mybtn mybtna"  target="_blank" href={`https://www.amazon.${country}/review/create-review/?asin=${asin}%3A5`}>Click To Leave A 5-Star Review
+</Button>
+<p className="reviewCardStyle1"> After the review is posted, you will receive one confirmation email from “Amazon Review” in 2-3 days, please forward this confirmation email to <strong>{process.env.REACT_APP_contact_email}</strong> , then we will send you the gift card or free product immediately!
+</p>
+
+<p className="reviewCardStyle1">We suggest you record the email address above for further reference. And here’s a sample of the confirmation email you’ll receive:
+</p>
+
+<img src={screenshota} style={{width:"400px"}}/>
   </div>
   <div className="contentbox">
-        <UploadImage className="uploadimage" upload_allowed={true} OrderId={order_id} ASIN={asin} handleReviewScreenShotSubmit={this.handleReviewScreenShotSubmit} OrderId={order_id}/>
-    <p style={{fontSize:"14px",marginTop:'-10px'}}>maxiumn file size:1 MB</p>
+        
 
             <Button type="primary" className="mybtn" onClick={this.submitReview.bind(this)}>Submit</Button>
             <Button type="default" className="mydefaultbtn" onClick={this.goback.bind(this)}>Go Back </Button>

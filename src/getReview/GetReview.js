@@ -1,11 +1,12 @@
 import React, {
   Component,
 } from 'react';
-import GetYourBenefit from '../components/GetYourBenefit';
+import Benefit from '../components/Benefit';
+import GetBenefit from '../components/GetBenefit';
 import OrderId from '../components/OrderId';
 import NegtiveReview from '../components/NegtiveReview';
 import Feedback from '../components/Feedback';
-import Feedback2 from '../components/Feedback2';
+
 import PositiveReview from '../components/PositiveReview';
 import SuccessBanner from '../components/SuccessBanner';
 import Responsive from 'react-responsive-decorator';
@@ -97,11 +98,14 @@ class GetReview extends Component {
       feedback:
         <Feedback/>
       ,
-      feedback2:
-        <Feedback2/>
-      ,
       benefit:
-        <GetYourBenefit/>
+        <Benefit/>
+        ,
+         getbenefit:
+        <GetBenefit/>
+      ,
+       negativeReview:
+        <NegtiveReview/>
       ,
       SuccessBanner:
         <SuccessBanner/>
@@ -109,11 +113,15 @@ class GetReview extends Component {
 
     };
 
+    const headbarStyle = {
+       background: process.env.REACT_APP_theme_color
+    }
+
 
     return (
 
         <div className="desktop">
-          <div  className="toptitle">
+          <div  className="toptitle" style={headbarStyle}>
             <h1>Claim Your Benefit Now!!!</h1>
             {this.props.order_info['AmazonOrderId'] == '' ? null : <p className="orderside">Your Order Id: {this.props.order_info['AmazonOrderId']}</p>}
 
@@ -125,8 +133,11 @@ class GetReview extends Component {
         <div id="feedback"  className={this.props.step_info.length > 1 ? "tabunit activeTab" : "tabunit" }>
           <p>2. Your Feedback</p>
         </div>
-        <div id="review" className={this.props.step_info.length > 3 && this.props.order_info['star'] >= 4 ? "tabunit activeTab" : "tabunit" }>
+        <div id="benefit" className={this.props.step_info.length > 2 && this.props.order_info['star'] >= 4 ? "tabunit activeTab" : "tabunit" }>
           <p>3. Your Benefit</p>
+        </div>
+        <div id="getbenefit" className={this.props.step_info.length > 3 && this.props.order_info['star'] >= 4 ? "tabunit activeTab" : "tabunit" }>
+          <p>4. Get Benefit</p>
         </div>
         </div>
 

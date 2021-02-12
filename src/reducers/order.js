@@ -2,7 +2,7 @@ import * as types from '../actions/types';
 
 var reward_state = {
   seller_id:'',
-  AmazonOrderId:'',
+  AmazonOrderId:'111-0103601-0774643 B',
   star:0,
   period:'',
   redeem: null,
@@ -64,7 +64,7 @@ export const step_info = (state = ['order'],action) => {
 
 var user_state = {
   userName:'',
-  email:'',
+  email:'davidsunjie.sun@gmail.com',
 }
 
 export const user_info = (state = user_state,action) => {
