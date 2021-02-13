@@ -13,6 +13,10 @@ import screenshota from '../screenshot.jpg';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'
+
+import config from 'react-global-configuration'
+
+
 const reviewCardStyle = {
   color : '#333',
   fontSize : 14,
@@ -79,26 +83,29 @@ class PositiveReview extends Component {
       <div id='reviewb' className="feedbox">
       <div className="contentbox">
         <p className="reviewCardStyle1">
-         Dear customer, thank you so much for your precious feedback about our product! We have recorded it and will continue to improve our product according to your suggestions!
+         Greetings! Thank you for providing invaluable feedback about our product. We always strive to innovate and improve our products so that they will do more to improve the lives of our users. We will incorporate your feedback into our future product design and planning. 
 
  </p>
 
- <p className="reviewCardStyle1">We are a newly start up business, with several young staff working together, trying everything possible to provide the best products and the most satisfying services to our customers. But as you may not know, low rating might cause Amazon to limit the selling rights of our new store, so we will never have any chance to develop and improve our business any more.
+ <p className="reviewCardStyle1">As a new start-up company with several hard-working motivated staff members, we want you to know that low ratings might cause Amazon to limit the selling rights of our new store. We would like to ask if you could be kind and fair with your reviews so that we may have the opportunity to develop and improve our business services moving forward.
+
 </p>
 
-<p className="reviewCardStyle1">In this case, we want to kindly ask, could you do us a favor to <strong>leave us a 5-star review</strong> on Amazon? It will greatly help us to serve you better! Extra <strong>CDN$5</strong> Bonus will be given if you could include a video or 3-5 photos in your review.
+<p className="reviewCardStyle1">If you would kindly take a small amount of time to <strong>leave us a 5-star review</strong> on Amazon, it will not only help us serve you better, but will also help the consumer. An extra <strong>${config.get("extraAward")}</strong> Bonus will be given if you could include a video or 3-5 photos in your review.
 </p>
 
 
         <Button type="primary" style={{marginTop:"20px",marginBottom:"20px"}}  className="mybtn mybtna"  target="_blank" href={`https://www.amazon.${country}/review/create-review/?asin=${asin}%3A5`}>Click To Leave A 5-Star Review
 </Button>
-<p className="reviewCardStyle1"> After the review is posted, you will receive one confirmation email from “Amazon Review” in 2-3 days, please forward this confirmation email to <strong>{process.env.REACT_APP_contact_email}</strong> , then we will send you the gift card or free product immediately!
+<p className="reviewCardStyle1"> After the review is posted, you will receive a confirmation email from “Amazon Review” in two to three days. Please forward this confirmation Email to <strong>{config.get("email")}</strong> , After the review is posted, you will receive a confirmation email from “Amazon Review” in two to three days. Please forward this confirmation Email to
 </p>
 
-<p className="reviewCardStyle1">We suggest you record the email address above for further reference. And here’s a sample of the confirmation email you’ll receive:
+<p className="reviewCardStyle1">We suggest you record the Email address above for further reference. We have provided a sample of the confirmation email you’ll receive below.
+
 </p>
 
-<img src={screenshota} style={{width:"400px"}}/>
+<img src={screenshota} className="screenshotamazon"/>
+<p className="reviewCardStyle1 special1" >We sincerely appreciate your business, and If you have any additional questions about this survey please contact us via Email at <strong>{config.get("email")}</strong></p>
   </div>
   <div className="contentbox">
         

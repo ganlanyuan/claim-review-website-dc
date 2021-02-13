@@ -5,7 +5,7 @@ import cat from '../backcat.png';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'
-
+import config from 'react-global-configuration'
 class Benefit extends Component {
 
   constructor(props){
@@ -68,14 +68,6 @@ class Benefit extends Component {
     }
   }
 
-  getRewardPrice(){
-    var order_reward = this.props.order_info['reward']
-    if (order_reward == null){
-      return 10
-    }else{
-      return order_reward
-    }
-  }
 
   handleUserNameChange = e =>{
     this.setState({
@@ -112,7 +104,7 @@ class Benefit extends Component {
             Same Free Product
             </Radio>
             <Radio value={"Amazon Gift Card"}>
-            ${this.getRewardPrice()}  Amazon Gift Card
+            ${config.get('amount')}  Amazon Gift Card
             </Radio>
           </Radio.Group>
       </div>
@@ -141,9 +133,9 @@ class Benefit extends Component {
           prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
         />
             <br/>
-        <Button type="primary" style={{marginTop:"20px"}} className="mybtn" onClick={this.handleInformationSubmit.bind(this)}>Submit</Button>
+        <Button type="primary" style={{marginTop:"20px"}} className="mybtn" onClick={this.handleInformationSubmit.bind(this)}>Next</Button>
         <Button type="default" className="mydefaultbtn" onClick={this.goback.bind(this)}>Go Back </Button>
-          <p class="bottomtext" style={{marginTop:"20px",width:"400px"}}><strong>{process.env.REACT_APP_review_source}</strong> is the sole owner of information collected from its customers. We will not sell or share this information with third parties in ways different from what is disclosed in our Privacy Policy.</p>
+          <p className="bottomtext bottomtextb"><strong>{config.get('source')}</strong> is the sole owner of information collected from its customers. We will not sell or share this information with third parties in ways different from what is disclosed in our Privacy Policy.</p>
 
 
     </div>

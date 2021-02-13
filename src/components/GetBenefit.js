@@ -13,7 +13,7 @@ class GetBenefit extends Component {
 
     return (
       <div>
-      {this.props.order_info['star'] >= 4 ? <PositiveReview/> : <NegtiveReview/>}
+        <PositiveReview/>
       </div>
     )
 

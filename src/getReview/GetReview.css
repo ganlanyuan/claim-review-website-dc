@@ -8,14 +8,15 @@
 
 }
 
-
+.feebox{min-height: 500px;}
 .desktop {
   width: 1024px;
-  margin: 0 auto;
-  background: #fff;
+  margin: auto;
+  background: #fff; 
   border-radius: 10px; overflow: hidden;
   box-shadow: 2px 2px 2px rgba(0,0,0,.4)
 }
+.thankyou{margin-top: 30px;}
 
 .ant-tabs .ant-tabs-large-bar .ant-tabs-tab{padding:0px !important;}
 
@@ -25,7 +26,7 @@
 .ant-tabs-nav{width: 100%;}
 
 .ant-tabs-ink-bar{height:3px; background: rgb(252, 92, 15)}
-.toptitle{width:100%; height:70px; margin-bottom: 30px;}
+.toptitle{width:100%; height:70px; background: rgb(252, 92, 15); margin-bottom: 30px;}
 
 .toptitle h1{color:#fff; font-weight: bold; line-height: 70px; text-transform: uppercase; padding-left: 52px;font-size: 24px; float:left;letter-spacing: 1px;}
 

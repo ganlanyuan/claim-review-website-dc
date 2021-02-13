@@ -11,8 +11,11 @@ function App() {
   return (
   	 <Provider store={store}>
         <div className="overwapper">
-          <GetReview/>
         </div>
+          <div class="background">
+          <GetReview/>
+          </div>
+          
     </Provider>
 
   );

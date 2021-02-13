@@ -83,7 +83,7 @@ class OrderId extends Component {
  <Button type="primary" style={{width:"100px",height:"40px",fontSize:"16px",marginTop:"20px"}} onClick = {()=>this.checkOrderId()}>Search</Button>
    <br/>
   <div className="backimg"><img src={cat}/></div>
-        <p className="bottomtext">Please feel free to contact us if there are any problems. <br/>Email address: {process.env.REACT_APP_contact_email}</p>
+        <p className="bottomtext">Please feel free to contact us if there are any problems. <br/>Email address: {config.get('email')}</p>
       </div>
     );
   }

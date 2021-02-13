@@ -21,7 +21,7 @@ export const order_info = (state = reward_state,action) => {
       })
     case types.SET_FEEDBACK_TEXT:
         return Object.assign({},state,{
-          feedbackText: action.feedbackText
+          feedbackText: action.text
       })
     case types.SET_BENEFIT:
           return Object.assign({},state,{
