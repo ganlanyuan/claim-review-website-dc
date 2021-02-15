@@ -1,15 +1,14 @@
 import * as types from '../actions/types';
-
+import config from 'react-global-configuration'
 var reward_state = {
   seller_id:'',
   AmazonOrderId:'',
   star:0,
   period:'',
   redeem: null,
-  reward:10,
+  reward:'',
   benefit:'',
-  imagelist:[],
-  feedbackText:''
+  imagelist:[]
 }
 export const order_info = (state = reward_state,action) => {
   switch(action.type){

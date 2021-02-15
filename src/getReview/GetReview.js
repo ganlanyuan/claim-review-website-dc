@@ -121,10 +121,10 @@ class GetReview extends Component {
         <div id="feedback"  className={this.props.step_info.length > 1 ? "tabunit activeTab" : "tabunit" }>
           <p>2. Your Feedback</p>
         </div>
-        <div id="benefit" className={this.props.step_info.length - this.stephighlightAdjust() > 2 ? "tabunit activeTab" : "tabunit" }>
+        <div id="benefit" className={this.props.step_info.length > 2 && this.props.order_info['star'] > 3 ? "tabunit activeTab" : "tabunit" }>
           <p>3. Your Benefit</p>
         </div>
-        <div id="getbenefit" className={this.props.step_info.length - this.stephighlightAdjust() > 3  ? "tabunit activeTab" : "tabunit" }>
+        <div id="getbenefit" className={this.props.step_info.length > 3 && this.props.order_info['star'] > 3 ? "tabunit activeTab" : "tabunit" }>
           <p>4. Unlock Benefit</p>
         </div>
         </div>

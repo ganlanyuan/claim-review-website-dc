@@ -27,9 +27,11 @@ export function sendOrderId(order_id,email){
 
     return axios.get(request_url).then((response)=>{
       var result = response['data']['data']['order']
+      if (!result['reward']){
+          result['reward'] = config.get('amount')
+      }
       if (OrderIdResponse(dispatch,result)){
         dispatch(push('feedback'))
-        dispatch(setUserInfo('',email))
       }
 
     }).catch((err)=>{
@@ -182,20 +184,20 @@ function get_feedback_url(getState){
   var seller_id = mystate.order_info['seller_id']
   var reward = mystate.order_info['reward']
   var benefit = mystate.order_info['benefit']
-  var feedBackText = mystate.order_info['feedBackText']
+
   var path = mystate.order_info['imagelist'].map((img)=>{return img.response.fileName})
   var userName = mystate.user_info['userName']
   var email = mystate.user_info['email']
 
-  var request_url = `${remoteUrl}/graphql?query=mutation%20addRedeem%20{addRedeem(requestDate:"${today}",seller_id:"${seller_id}",AmazonOrderId:"${order_id}",asin:"${asin}",feedBackText:"${feedBackText}",country:"${url_country}",source:"${config.get('source')}",amount:"${reward}",usingTime:"${period}",star:${star},how_to_help:"${benefit}",name:"${userName}",email:"${email}",newsletter:true")%20{id}}`
+  var request_url = `${remoteUrl}/graphql?query=mutation%20addRedeem%20{addRedeem(requestDate:"${today}",seller_id:"${seller_id}",AmazonOrderId:"${order_id}",asin:"${asin}",country:"${url_country}",source:"${config.get('source')}",amount:"${reward}",usingTime:"${period}",star:${star},how_to_help:"${benefit}",name:"${userName}",email:"${email}",newsletter:true")%20{id}}`
   return request_url
 
 }
 
-export function send_feedback(reward,username,email){
+export function send_feedback(){
   return (dispatch,getState) => {
       var request_url = get_feedback_url(getState)
-      dispatch(push('SuccessBanner'))
+      console.log(request_url)
     // axios.get(request_url).then(response => {
     //   notification['success']({
     //     message: 'Got It!',

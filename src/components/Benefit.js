@@ -47,7 +47,7 @@ class Benefit extends Component {
 
         this.props.setUserInfo(this.state.userName,this.state.email)
         this.props.setBenefit(this.state.benefit)
-        // this.props.send_feedback()
+        this.props.send_feedback()
         this.props.gotoGetBenefit()
       } else {
         notification['error']({
@@ -103,8 +103,8 @@ class Benefit extends Component {
             <Radio value={"Same Free Product"}>
             Same Free Product
             </Radio>
-            <Radio value={"Amazon Gift Card"}>
-            ${config.get('amount')}  Amazon Gift Card
+            <Radio value={`Amazon Gift Card`}>
+            ${this.props.order_info['reward']} Amazon Gift Card
             </Radio>
           </Radio.Group>
       </div>

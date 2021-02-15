@@ -55,20 +55,7 @@ class PositiveReview extends Component {
   }
 
   submitReview(){
-    this.props.send_feedback()
-    // if (this.props.order_info['imagelist'].length > 0) {
-
-    //   message.success('Thank you for your feedback.')
-    //   // this.props.push('benefit')
-    //   this.props.send_feedback()
-    // } else {
-    //   notification['error']({
-    //     message: 'Notification Title',
-    //     description:
-    //       <div><p>Please upload the screenshot of your review</p>
-    //       </div>
-    //   });
-    // }
+    this.props.push('SuccessBanner')
   }
 
 
