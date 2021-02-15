@@ -34,12 +34,10 @@ class OrderId extends Component {
 
   checkOrderId(){
     var orderId = this.state.amazonOrderId
-    var email = this.state.email
-    if (this.ValidateEmail(email)){
+ 
       orderId = orderId.replace(/[^0-9]/g, '');
       var newOrderId = orderId.slice(0,3) + '-' + orderId.slice(3,10) + '-' + orderId.slice(10,17);
-      this.props.sendOrderId(newOrderId,email)
-    }
+      this.props.sendOrderId(newOrderId)
   }
 
   handleEmailChange = e =>{
