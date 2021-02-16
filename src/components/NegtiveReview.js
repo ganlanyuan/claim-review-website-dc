@@ -110,7 +110,7 @@ class NegtiveReview extends Component {
             prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
           />
  <br/>
-           <Button type="primary"  className="mybtn" onClick={this.submitFeedback.bind(this)}>Next</Button>
+           <Button type="primary"  className="mybtn" onClick={this.submitFeedback.bind(this)}>Submit</Button>
            <Button type="default" className="mydefaultbtn" onClick={this.goback.bind(this)}>Go Back </Button>
         </div>
 

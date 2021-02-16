@@ -29,16 +29,6 @@ const reviewCardStyle = {
 }
 
 
-
-function check_url_tail(country){
-  if ( country == 'CA') {
-    return 'ca'
-  }else if( country == 'UK'){
-    return 'co.uk'
-  }else{
-    return 'com'
-  }
-}
 class PositiveReview extends Component {
 
   getRewardPrice(){
@@ -65,7 +55,7 @@ class PositiveReview extends Component {
     var country = this.props.order_info['items'][0]['country']
     var asin = this.props.order_info['items'][0]['ASIN']
     var order_id = this.props.order_info['AmazonOrderId']
-    var url_country = check_url_tail(country)
+
     return (
       <div id='reviewb' className="feedbox">
       <div className="contentbox">
@@ -96,9 +86,6 @@ class PositiveReview extends Component {
   </div>
   <div className="contentbox">
         
-
-            <Button type="primary" className="mybtn" onClick={this.submitReview.bind(this)}>Submit</Button>
-            <Button type="default" className="mydefaultbtn" onClick={this.goback.bind(this)}>Go Back </Button>
 
          </div>
          <div className="backimg"><img src={cat}/></div>

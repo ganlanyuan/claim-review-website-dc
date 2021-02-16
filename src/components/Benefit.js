@@ -133,7 +133,7 @@ class Benefit extends Component {
           prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
         />
             <br/>
-        <Button type="primary" style={{marginTop:"20px"}} className="mybtn" onClick={this.handleInformationSubmit.bind(this)}>Next</Button>
+        <Button type="primary" style={{marginTop:"20px"}} className="mybtn" onClick={this.handleInformationSubmit.bind(this)}>Submit</Button>
         <Button type="default" className="mydefaultbtn" onClick={this.goback.bind(this)}>Go Back </Button>
           <p className="bottomtext bottomtextb"><strong>{config.get('source')}</strong> is the sole owner of information collected from its customers. We will not sell or share this information with third parties in ways different from what is disclosed in our Privacy Policy.</p>
 

@@ -161,16 +161,6 @@ export function setBenefit(benefit){
 }
 
 
-function check_url_tail(country){
-  if ( country == 'CA') {
-    return 'ca'
-  }else if( country == 'UK'){
-    return 'co.uk'
-  }else{
-    return 'com'
-  }
-}
-
 function get_feedback_url(getState){
   var mystate = getState()
   var d = new Date();
@@ -178,7 +168,6 @@ function get_feedback_url(getState){
   var country = mystate.order_info['items'][0]['country']
   var asin = mystate.order_info['items'][0]['ASIN']
   var order_id = mystate.order_info['AmazonOrderId']
-  var url_country = check_url_tail(country)
   var period = mystate.order_info['period']
   var star = mystate.order_info['star']
   var seller_id = mystate.order_info['seller_id']
@@ -189,7 +178,7 @@ function get_feedback_url(getState){
   var userName = mystate.user_info['userName']
   var email = mystate.user_info['email']
 
-  var request_url = `${remoteUrl}/graphql?query=mutation%20addRedeem%20{addRedeem(requestDate:"${today}",seller_id:"${seller_id}",AmazonOrderId:"${order_id}",asin:"${asin}",country:"${url_country}",source:"${config.get('source')}",amount:"${reward}",usingTime:"${period}",star:${star},how_to_help:"${benefit}",name:"${userName}",email:"${email}",newsletter:true")%20{id}}`
+  var request_url = `${remoteUrl}/graphql?query=mutation%20addRedeem%20{addRedeem(requestDate:"${today}",seller_id:"${seller_id}",AmazonOrderId:"${order_id}",asin:"${asin}",country:"${country}",source:"${config.get('source')}",amount:"${reward}",usingTime:"${period}",star:${star},how_to_help:"${benefit}",name:"${userName}",email:"${email}",newsletter:true)%20{id}}`
   return request_url
 
 }
@@ -198,12 +187,12 @@ export function send_feedback(){
   return (dispatch,getState) => {
       var request_url = get_feedback_url(getState)
       console.log(request_url)
-    // axios.get(request_url).then(response => {
-    //   notification['success']({
-    //     message: 'Got It!',
-    //     description:
-    //       'Thank you for your review and information, we will contact you as soon as possible',
-    //   });
-    // })
+    axios.get(request_url).then(response => {
+      notification['success']({
+        message: 'Got It!',
+        description:
+          'Thank you for your review and information, we will contact you as soon as possible',
+      });
+    })
     }
 }
