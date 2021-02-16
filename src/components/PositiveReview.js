@@ -74,7 +74,7 @@ class PositiveReview extends Component {
 
         <Button type="primary" style={{marginTop:"20px",marginBottom:"20px"}}  className="mybtn mybtna"  target="_blank" href={`https://www.amazon.${country}/review/create-review/?asin=${asin}%3A5`}>Click To Leave A 5-Star Review
 </Button>
-<p className="reviewCardStyle1"> After the review is posted, you will receive a confirmation email from “Amazon Review” in two to three days. Please forward this confirmation Email to <strong>{config.get("email")}</strong> , After the review is posted, you will receive a confirmation email from “Amazon Review” in two to three days. Please forward this confirmation Email to
+<p className="reviewCardStyle1"> After the review is posted, you will receive a confirmation email from “Amazon Review” in two to three days. Please forward this confirmation Email to <strong>{config.get("email")}</strong>.
 </p>
 
 <p className="reviewCardStyle1">We suggest you record the Email address above for further reference. We have provided a sample of the confirmation email you’ll receive below.

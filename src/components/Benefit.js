@@ -11,7 +11,7 @@ class Benefit extends Component {
   constructor(props){
     super(props);
     this.state={
-      benefit:this.props.user_info['benefit'],
+      benefit:this.props.order_info['benefit'],
       userName:this.props.user_info['userName'],
       email:this.props.user_info['email'],
     }
@@ -19,16 +19,6 @@ class Benefit extends Component {
 
   componentDidMount() {
 
-  }
-
-  check_url_tail(country){
-    if ( country == 'CA') {
-      return 'ca'
-    }else if( country == 'UK'){
-      return 'co.uk'
-    }else{
-      return 'com'
-    }
   }
 
   validateEmail(email) {
@@ -40,8 +30,9 @@ class Benefit extends Component {
     var seller_id = this.props.order_info['seller_id']
     var asin = this.props.order_info['items'][0]['ASIN']
     var country = this.props.order_info['items'][0]['country']
-    var url_country = this.check_url_tail(country)
+  
     var order_id = this.props.order_info['AmazonOrderId']
+    console.log(this.state.benefit)
     if (this.state.benefit !== "" && this.state.email !== "" && this.state.userName !== ""){
       if (this.validateEmail(this.state.email)) {
 
