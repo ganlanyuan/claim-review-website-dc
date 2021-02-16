@@ -187,12 +187,12 @@ export function send_feedback(){
   return (dispatch,getState) => {
       var request_url = get_feedback_url(getState)
       console.log(request_url)
-    // axios.get(request_url).then(response => {
-    //   notification['success']({
-    //     message: 'Got It!',
-    //     description:
-    //       'Thank you for your review and information, we will contact you as soon as possible',
-    //   });
-    // })
+    axios.get(request_url).then(response => {
+      notification['success']({
+        message: 'Got It!',
+        description:
+          'Thank you for your review and information, we will contact you as soon as possible',
+      });
+    })
     }
 }
