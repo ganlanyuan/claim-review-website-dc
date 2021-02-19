@@ -48,11 +48,20 @@ class PositiveReview extends Component {
     this.props.push('SuccessBanner')
   }
 
-
+  check_url_tail(country){
+      if ( country == 'CA') {
+        return 'ca'
+      }else if( country == 'UK'){
+        return 'co.uk'
+      }else{
+        return 'com'
+      }
+    }
 
 
   render() {
-    var country = this.props.order_info['items'][0]['country']
+    var country = this.check_url_tail(this.props.order_info['items'][0]['country'])
+
     var asin = this.props.order_info['items'][0]['ASIN']
     var order_id = this.props.order_info['AmazonOrderId']
 
