@@ -38,7 +38,7 @@ class Feedback extends Component {
 
   checkFeedback(){
 
-    if (this.state.star > 0 && this.state.period !== "") {
+    if (this.state.star > 0) { // && this.state.period !== ""
       if (this.state.star<4){
         this.props.goNegative(this.state.star,this.state.period)
         return
@@ -61,23 +61,23 @@ class Feedback extends Component {
   render() {
 
 
+      // <div className="feedwrapper">
+
+      //     <p className="questitle">How long have you been using it?</p>
+      //     <Radio.Group onChange={this.handlePeriodChange} value={this.state.period}>
+      //       <Radio className="opt"  value={"less than 7 days"}>
+      //       Just started (less than 7 days)
+      //       </Radio>
+      //       <Radio className="opt"  value={"for a while"}>
+      //       I've been using it for a while!
+      //       </Radio>
+      //       <Radio  className="opt" value={"more than 60 days"}>
+      //       I have been using it for more than 60 days.
+      //       </Radio>
+      //     </Radio.Group>
+      //   </div>
     return (
       <div className="feedbox">
-      <div className="feedwrapper">
-
-          <p className="questitle">How long have you been using it?</p>
-          <Radio.Group onChange={this.handlePeriodChange} value={this.state.period}>
-            <Radio className="opt"  value={"less than 7 days"}>
-            Just started (less than 7 days)
-            </Radio>
-            <Radio className="opt"  value={"for a while"}>
-            I've been using it for a while!
-            </Radio>
-            <Radio  className="opt" value={"more than 60 days"}>
-            I have been using it for more than 60 days.
-            </Radio>
-          </Radio.Group>
-        </div>
 
         <div className="feedwrapper">
         <p className="questitle">How satisfied are you with our product?</p>
