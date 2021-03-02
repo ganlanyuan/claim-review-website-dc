@@ -26,15 +26,12 @@ export function sendOrderId(order_id,email){
     var request_url = `${remoteUrl}/graphql?query={order(amazon_order_id:%20%22${order_id}%22)%20{seller_id%20AmazonOrderId%20redeem%20{requestDate}%20items%20{ASIN%20country%20ItemPriceUSD}%20reward}}`
 
     return axios.get(request_url).then((response)=>{
-      var result = response['data']['data']['order']
-      if (!result['reward']){
-          result['reward'] = config.get('amount')
-      }
+      var result = response.data.data.order
       if (OrderIdResponse(dispatch,result)){
         dispatch(push('feedback'))
       }
-
     }).catch((err)=>{
+      console.log(err);
 
       notification['error']({
         message: 'Server is under maintenance.',
@@ -56,6 +53,9 @@ function OrderIdResponse(dispatch,data){
       description:'Sorry, there is no item in this order. Please change the order ID and try again.'
     });
   }else if (data.redeem === null){
+    if (!data.reward) {
+      data.reward = config.get('amount')
+    }
     dispatch(setOrderInfo(data))
     notification['success']({
       message: 'Notification Title',
@@ -171,7 +171,7 @@ function get_feedback_url(getState){
   var period = mystate.order_info['period']
   var star = mystate.order_info['star']
   var seller_id = mystate.order_info['seller_id']
-  var reward = mystate.order_info['reward']
+  var reward = mystate.order_info['reward'] ? mystate.order_info['reward'] : config.get('amount')
   var benefit = mystate.order_info['benefit']
 
   var path = mystate.order_info['imagelist'].map((img)=>{return img.response.fileName})
