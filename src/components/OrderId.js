@@ -19,8 +19,8 @@ class OrderId extends Component {
       email:this.props.user_info['email']
     }
   }
-   
-  ValidateEmail(mail) 
+
+  ValidateEmail(mail)
   {
    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
     {
@@ -34,7 +34,7 @@ class OrderId extends Component {
 
   checkOrderId(){
     var orderId = this.state.amazonOrderId
- 
+
       orderId = orderId.replace(/[^0-9]/g, '');
       var newOrderId = orderId.slice(0,3) + '-' + orderId.slice(3,10) + '-' + orderId.slice(10,17);
       this.props.sendOrderId(newOrderId)
@@ -58,34 +58,31 @@ class OrderId extends Component {
     } = Input;
 
     return (
-      <div className = "textbox">
+      <div className = "content">
 
-      <p>Please enter your <b>Amazon ORDER ID</b> here.</p>
-      <p style={{fontSize:"14px"}}>ORDER ID example: 123-1234567-1234567.</p>
-        <a rel="noreferrer" style={{fontSize:"16px",display:"block",marginTop:"40px",fontStyle:"italic",textDecoration:"underline"}} href="https://www.amazon.com/gp/css/order-history?ie=UTF8&amp;amp;ref_=nav_nav_orders_first" target="_blank">Click here to find my orders »</a>
-
-  <Input
-          onChange = {
-            value => this.handleAmazonOrderIdChange(value)
-          }
-          className="searchbar"
-          size='large'
-          value = {this.state.amazonOrderId}
-          placeholder="Enter your Amazon Order ID"
-          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-        />
-      <div className="clear"></div>
-
-  <br/>
-  <div className="clear"></div>
- <Button type="primary" style={{width:"100px",height:"40px",fontSize:"16px",marginTop:"20px"}} onClick = {()=>this.checkOrderId()}>Search</Button>
-   <br/>
-  <div className="backimg"><img src={cat}/></div>
-        <p className="bottomtext">Please feel free to contact us if there are any problems. <br/>Email address: {config.get('email')}</p>
+      <div className="row">
+        <p className="p-l">Please enter your amazon order ID of this product here:</p>
+      </div>
+      <div className="row">
+        <p className="small quiet">ORDER ID example: <strong>123-1234567-1234567</strong>.</p>
+        <div className="searchline">
+          <Input
+            onChange = {
+              value => this.handleAmazonOrderIdChange(value)
+            }
+            className="lg"
+            value = {this.state.amazonOrderId}
+            placeholder="Your Amazon Order ID"
+            />
+          <Button className="lg" onClick = {()=>this.checkOrderId()}>Search</Button>
+        </div>
+        <a className="small" rel="noreferrer" style={{display:"block",textDecoration:"underline"}} href="https://www.amazon.com/gp/css/order-history?ie=UTF8&amp;amp;ref_=nav_nav_orders_first" target="_blank">Click here to find my orders</a>
+      </div>
       </div>
     );
   }
 }
+    // <p className="bottomtext">Please feel free to contact us if there are any problems. <br/>Email address: {config.get('email')}</p>
 
 function mapStateToProps(state){
   return{
