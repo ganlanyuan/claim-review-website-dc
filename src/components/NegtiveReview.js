@@ -9,7 +9,7 @@ import {
   Radio,
   Icon,
 } from 'antd';
-import cat from '../backcat.png';
+// import cat from '../backcat.png';
 import './component.css'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -72,52 +72,55 @@ class NegtiveReview extends Component {
     const { TextArea } = Input;
 
     return (
-      <div className="feedbox feedboxb">
-      <div className="feedwrapper">
-        <p style={{marginBottom:'10px',fontSize:"18px",paddingRight:'30px'}}>
-          We are so sorry that it seems that you do not like our product. We hope to satisfy every precious customer. And we hope you can give us some feedback so that we can offer better service.
-        </p>
-
-
-          <TextArea onChange = {
-              value => this.handleFeedbackTextChange(value)
-            }
-            className="mytextarea"
-            rows={2} placeholder="Please leave your feedback"/>
+      <div className="content">
+        <div className="row-lg">
+          <h2 className="h2">We Are Here For You</h2>
+          <p className="p">Dear customer, we are really sorry that our product can not fully meet your expectations and we are here to express our sincere apology. As you know that there are many different cases, please believe that our team has been working really hard to upgrade our products to work for all our customers.</p>
+          <p className="p">Could you please send us an email to let us know what the problem is? We will resolve it to your satisfaction.</p>
+          <p className="p">Email address: <a href="mailto:LuelliforYOU@gmail.com">LuelliforYOU@gmail.com</a></p>
         </div>
-
-       <div className="feedwrapper">
-          <p style={{marginBottom:'10px',fontSize:"18px",paddingRight:'30px'}}>Please leave your name and email.</p>
- 
-          <Input
-            onChange = {
-              value => this.handleUserNameChange(value)
-            }
-            size='large'
-            className="myinput"
-            placeholder="Enter your username"
-            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          />
-          <br/>
-         
-          <Input
-            onChange = {
-              value => this.handleEmailChange(value)
-            }
-            className="myinput"
-            size='large'
-            placeholder="Enter your Email"
-            prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          />
- <br/>
-           <Button type="primary"  className="mybtn" onClick={this.submitFeedback.bind(this)}>Submit</Button>
-           <Button type="default" className="mydefaultbtn" onClick={this.goback.bind(this)}>Go Back </Button>
+        <div className="row">
+          <Button type="default" onClick={this.goback.bind(this)}>Go Back </Button>
         </div>
-
-
-
-
       </div>
+
+
+            // <TextArea onChange = {
+            //     value => this.handleFeedbackTextChange(value)
+            //   }
+            //   className="mytextarea"
+            //   rows={2} placeholder="Please leave your feedback"/>
+
+       // <div className="feedwrapper">
+       //    <p style={{marginBottom:'10px',fontSize:"18px",paddingRight:'30px'}}>Please leave your name and email.</p>
+
+       //    <Input
+       //      onChange = {
+       //        value => this.handleUserNameChange(value)
+       //      }
+       //      size='large'
+       //      className="myinput"
+       //      placeholder="Enter your username"
+       //      prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+       //    />
+       //    <br/>
+
+       //    <Input
+       //      onChange = {
+       //        value => this.handleEmailChange(value)
+       //      }
+       //      className="myinput"
+       //      size='large'
+       //      placeholder="Enter your Email"
+       //      prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+       //    />
+       //     <Button type="primary"  className="mybtn" onClick={this.submitFeedback.bind(this)}>Submit</Button>
+       //     <Button type="default" className="mydefaultbtn" onClick={this.goback.bind(this)}>Go Back </Button>
+       //  </div>
+
+
+
+
     );
   }
 }

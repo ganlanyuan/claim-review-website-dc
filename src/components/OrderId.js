@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import {
-  Input,Icon,Button,notification
+  Input,Icon,Button,notification,
 } from 'antd';
 import Responsive from 'react-responsive-decorator'
 import config from 'react-global-configuration'
-import cat from '../backcat.png'
+// import cat from '../backcat.png'
 import './component.css'
 
 import {connect} from 'react-redux'

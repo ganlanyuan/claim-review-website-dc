@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import { Input, Radio, Icon, Row, Button, Col,message,notification } from 'antd';
+import { Input, Radio,Checkbox, Icon, Row, Button, Col,message,notification } from 'antd';
 import Responsive from 'react-responsive-decorator';
-import cat from '../backcat.png';
+// import cat from '../backcat.png';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'
@@ -30,10 +30,16 @@ class Benefit extends Component {
     var seller_id = this.props.order_info['seller_id']
     var asin = this.props.order_info['items'][0]['ASIN']
     var country = this.props.order_info['items'][0]['country']
-  
+
     var order_id = this.props.order_info['AmazonOrderId']
-    console.log(this.state.benefit)
-    if (this.state.benefit !== "" && this.state.email !== "" && this.state.userName !== ""){
+    if (this.state.benefit !== "" &&
+        this.state.streetAddress !== "" &&
+        // this.state.streetAddress2 !== "" &&
+        this.state.city !== "" &&
+        this.state.state !== "" &&
+        this.state.zipCode !== "" &&
+        this.state.email !== "" &&
+        this.state.userName !== ""){
       if (this.validateEmail(this.state.email)) {
 
         this.props.setUserInfo(this.state.userName,this.state.email)
@@ -60,6 +66,36 @@ class Benefit extends Component {
   }
 
 
+  handleStreetAddressChange = e =>{
+    this.setState({
+      streetAddress: e.target.value,
+    })
+  }
+
+  handleStreetAddress2Change = e =>{
+    this.setState({
+      streetAddress2: e.target.value,
+    })
+  }
+
+  handleCityChange = e =>{
+    this.setState({
+      city: e.target.value,
+    })
+  }
+
+  handleStateChange = e =>{
+    this.setState({
+      state: e.target.value,
+    })
+  }
+
+  handleZipCodeChange = e =>{
+    this.setState({
+      zipCode: e.target.value,
+    })
+  }
+
   handleUserNameChange = e =>{
     this.setState({
       userName: e.target.value,
@@ -75,7 +111,19 @@ class Benefit extends Component {
   handleBenefitMethod= e =>{
     this.setState({
       benefit: e.target.value,
-    })
+    });
+    var mailing = document.querySelector('.mailing');
+    if (e.target.value ==='Same Free Product') {
+      mailing.style.display = '';
+    } else {
+      mailing.style.display = 'none';
+    }
+  }
+
+  handleCustomersClub= e =>{
+    this.setState({
+      benefit: e.target.checked,
+    });
   }
 
   goback(){
@@ -86,54 +134,105 @@ class Benefit extends Component {
 
     return (
 
-      <div className="feedbox">
-      <div className="feedwrapper">
-        <span style={{marginBottom:"20px"}}>Please select your benefit and enter your name, email to receive it.</span>
-              <br/>
+      <div className="content">
+        <div className="row">
+          <p className="p p-l">Please select your benefit and enter your name, email to receive it.</p>
+        </div>
+        <div className="row">
           <Radio.Group onChange={this.handleBenefitMethod} value={this.state.benefit}>
-            <Radio value={"Same Free Product"}>
-            Same Free Product
-            </Radio>
-            <Radio value={`Amazon Gift Card`}>
-            ${this.props.order_info['reward']} Amazon Gift Card
-            </Radio>
+            <Radio value={`Amazon Gift Card`}>${this.props.order_info['reward']} Amazon Gift Card</Radio>
+            <Radio value={"Same Free Product"}>Same Free Product</Radio>
           </Radio.Group>
+        </div>
+
+      <div className="row user-info">
+        <div className="mailing" style={{display: 'none'}}>
+          <div className="form-row">
+            <Input
+              onChange = {
+                value => this.handleStreetAddressChange(value)
+              }
+              className="myinput"
+              value = {this.state.streetAddress}
+              placeholder="Street address"
+            />
+          </div>
+          <div className="form-row">
+            <Input
+              onChange = {
+                value => this.handleStreetAddress2Change(value)
+              }
+              className="myinput"
+              value = {this.state.streetAddress2}
+              placeholder="Apt., ste., bldg. (optional)"
+            />
+          </div>
+          <div className="form-row multi-inputs-3">
+            <Input
+              onChange = {
+                value => this.handleCityChange(value)
+              }
+              className="myinput"
+              value = {this.state.city}
+              placeholder="City"
+            />
+            <Input
+              onChange = {
+                value => this.handleStateChange(value)
+              }
+              className="myinput"
+              value = {this.state.state}
+              placeholder="State"
+            />
+            <Input
+              onChange = {
+                value => this.handleZipCodeChange(value)
+              }
+              className="myinput"
+              value = {this.state.zipCode}
+              placeholder="Zip code"
+            />
+          </div>
+        </div>
+        <div className="basic">
+          <div className="form-row">
+            <Input
+              onChange = {
+                value => this.handleUserNameChange(value)
+              }
+              className="myinput"
+              value = {this.state.userName}
+              placeholder="Name"
+            />
+          </div>
+          <div className="form-row">
+            <Input
+              onChange = {
+                value => this.handleEmailChange(value)
+              }
+              className="myinput"
+              value = {this.state.email}
+              placeholder="Email address"
+            />
+          </div>
+        </div>
       </div>
 
-      <div className="feedwrapper">
-        <Input
-          onChange = {
-            value => this.handleUserNameChange(value)
-          }
-          className="myinput"
-          size='large'
-          value = {this.state.userName}
-          placeholder="Enter your username"
-          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-        />
-      <br/>
-        <Input
-          onChange = {
-            value => this.handleEmailChange(value)
-          }
-          className="myinput"
-          size='large'
-       
-          value = {this.state.email}
-          placeholder="Enter your Email"
-          prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-        />
-            <br/>
-        <Button type="primary" style={{marginTop:"20px"}} className="mybtn" onClick={this.handleInformationSubmit.bind(this)}>Submit</Button>
+      <div className="row">
+        <Checkbox onChange={
+          checked => this.handleCustomersClub(checked)
+        }>Join our Customers Club to Receive Newly Released Products, Amazon Gift Card & Lifetime Warranty</Checkbox>
+      </div>
+
+      <div className="row-lg">
+        <p className="x-small quiet">{config.get('source')} is the sole owner of information collected from its customers. We will not sell or share this information with third parties in ways different from what is disclosed in our Privacy Policy.</p>
+      </div>
+
+      <div className="row">
+        <Button type="primary" className="btn-next" onClick={this.handleInformationSubmit.bind(this)}>Next</Button>
         <Button type="default" className="mydefaultbtn" onClick={this.goback.bind(this)}>Go Back </Button>
-          <p className="bottomtext bottomtextb"><strong>{config.get('source')}</strong> is the sole owner of information collected from its customers. We will not sell or share this information with third parties in ways different from what is disclosed in our Privacy Policy.</p>
-
-
-    </div>
-
-
-       <div className="backimg"><img src={cat}/></div>
       </div>
+    </div>
     )
   }
 }

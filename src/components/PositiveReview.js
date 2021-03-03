@@ -8,8 +8,8 @@ import {
   notification,
   Col,
 } from 'antd';
-import cat from '../backcat.png';
-import screenshota from '../screenshot.jpg';
+// import cat from '../backcat.png';
+import sample from '../sample.jpg';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'
@@ -66,38 +66,19 @@ class PositiveReview extends Component {
     var order_id = this.props.order_info['AmazonOrderId']
 
     return (
-      <div id='reviewb' className="feedbox">
-      <div className="contentbox">
-        <p className="reviewCardStyle1">
-         Greetings! Thank you for providing invaluable feedback about our product. We always strive to innovate and improve our products so that they will do more to improve the lives of our users. We will incorporate your feedback into our future product design and planning. 
-
- </p>
-
- <p className="reviewCardStyle1">As a new start-up company with several hard-working motivated staff members, we want you to know that low ratings might cause Amazon to limit the selling rights of our new store. We would like to ask if you could be kind and fair with your reviews so that we may have the opportunity to develop and improve our business services moving forward.
-
-</p>
-
-<p className="reviewCardStyle1">If you would kindly take a small amount of time to <strong>leave us a 5-star review</strong> on Amazon, it will not only help us serve you better, but will also help the consumer. An extra <strong>${config.get("extraAward")}</strong> Bonus will be given if you could include a video or 3-5 photos in your review.
-</p>
-
-
-        <Button type="primary" style={{marginTop:"20px",marginBottom:"20px"}}  className="mybtn mybtna"  target="_blank" href={`https://www.amazon.${country}/review/create-review/?asin=${asin}%3A5`}>Click To Leave A 5-Star Review
-</Button>
-<p className="reviewCardStyle1"> After the review is posted, you will receive a confirmation email from “Amazon Review” in two to three days. Please forward this confirmation Email to <strong>{config.get("email")}</strong>.
-</p>
-
-<p className="reviewCardStyle1">We suggest you record the Email address above for further reference. We have provided a sample of the confirmation email you’ll receive below.
-
-</p>
-
-<img src={screenshota} className="screenshotamazon"/>
-<p className="reviewCardStyle1 special1" >We sincerely appreciate your business, and If you have any additional questions about this survey please contact us via Email at <strong>{config.get("email")}</strong></p>
-  </div>
-  <div className="contentbox">
-        
-
-         </div>
-         <div className="backimg"><img src={cat}/></div>
+      <div id='reviewb' className="content">
+        <h2 className="h2">Unlock Your Benefit</h2>
+        <p className="p">Dear customer, thank you so much for your precious feedback about our product! We have recorded it and will continue to improve our product according to your suggestions!</p>
+        <p className="p">We are a newly start up business, with several young staff working together, trying everything possible to provide the best products and the most satisfying services to our customers. But as you may not know, low ratings might cause Amazon to limit the selling rights of our new store, so we will never have any chance to develop and improve our business any more.</p>
+        <p className="p">In this case, we want to kindly ask, could you do us a favor to <strong className="highlight">leave us a 5-star review on Amazon</strong>? It will greatly help us to serve you better!</p>
+        <p className="p center-align">
+          <Button type="primary" className="btn-highlight btn-round"  target="_blank" href={`https://www.amazon.${country}/review/create-review/?asin=${asin}%3A5`}>Click To Leave A 5-Star Review </Button>
+        </p>
+        <p className="p">Leave feedback for the products on Amazon and claim all offers!</p>
+        <p className="p">After the review is posted, you will receive one confirmation email from amazon, please forward Amazon’s confirmation email to <a href="mailto:LuelliforYOU@gmail.com">LuelliforYOU@gmail.com</a>, then you can unlock your benefit!</p>
+        <p className="p">We suggest you record the email address above for further reference. And here’s a sample of the confirmation email you’ll receive:</p>
+        <p className="p"><img src={sample} className="screenshotamazon"/></p>
+        <p className="p">If you have any other questions about this survey, please contact <a href="mailto:LuelliforYOU@gmail.com">LuelliforYOU@gmail.com</a>.</p>
       </div>
     );
   }

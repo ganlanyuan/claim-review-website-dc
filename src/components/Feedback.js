@@ -10,7 +10,8 @@ import {
 } from 'antd';
 import Responsive from 'react-responsive-decorator';
 import './component.css'
-import cat from '../backcat.png';
+// import cat from '../backcat.png';
+import arrow from '../right-angle-white.svg';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'
@@ -77,19 +78,17 @@ class Feedback extends Component {
       //     </Radio.Group>
       //   </div>
     return (
-      <div className="feedbox">
+      <div className="content">
 
-        <div className="feedwrapper">
-        <p className="questitle">How satisfied are you with our product?</p>
-
-        <Rate tooltips={desc} onChange={this.handleRateChange} value={this.state.star} />
-
+        <div className="row-lg">
+          <p className="p-l">How satisfied are you with our product?</p>
+          <Rate tooltips={desc} onChange={this.handleRateChange} value={this.state.star} />
         </div>
-        <div className="feedwrapper">
-            <Button type="primary" className="mybtn" onClick={this.checkFeedback.bind(this)}>Next</Button>
-            <Button type="default" className="mydefaultbtn" onClick={this.goback.bind(this)}>Go Back </Button>
+
+        <div className="row">
+          <Button type="primary" className="btn-next" onClick={this.checkFeedback.bind(this)}>Next</Button>
+          <Button type="default" className="" onClick={this.goback.bind(this)}>Go Back </Button>
        </div>
-         <div className="backimg"><img src={cat}/></div>
        </div>
     );
   }

@@ -67,6 +67,7 @@
   height: 59px;
   background: hsl(277, 85%, 63%);
   margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .toptitle h1 {

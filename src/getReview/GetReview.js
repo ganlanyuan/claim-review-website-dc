@@ -96,7 +96,6 @@ class GetReview extends Component {
 
     };
 
-    console.log(this.state.step)
     return (
 
       <div className="desktop">
@@ -113,10 +112,10 @@ class GetReview extends Component {
             <div id="order" className={this.props.step_info.length > 1 ? "tabunit passedTab" : "tabunit activeTab" }>
               Your Order
             </div>
-            <div id="feedback"  className={this.props.step_info.length > 1 ? "tabunit activeTab" : "tabunit" }>
+            <div id="feedback"  className={this.props.step_info.length > 2 ? "tabunit passedTab" : this.props.step_info.length > 1 ? "tabunit activeTab" : "tabunit" }>
               Your Feedback
             </div>
-            <div id="benefit" className={this.props.step_info.length > 2 && this.props.order_info['star'] > 3 ? "tabunit activeTab" : "tabunit" }>
+            <div id="benefit" className={this.props.step_info.length > 3 && this.props.order_info['star'] > 3 ? "tabunit passedTab" : this.props.step_info.length > 2 && this.props.order_info['star'] > 3 ? "tabunit activeTab" : "tabunit" }>
               Your Benefit
             </div>
             <div id="getbenefit" className={this.props.step_info.length > 3 && this.props.order_info['star'] > 3 ? "tabunit activeTab" : "tabunit" }>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { applyMiddleware, createStore, compose } from 'redux'
 import GetReview from './getReview/GetReview';
-import Background from './background.jpg';
+// import Background from './background.jpg';
 import configureStore from './store/configureStore'
 import { Provider } from 'react-redux'
 
@@ -12,10 +12,10 @@ function App() {
   	 <Provider store={store}>
         <div className="overwapper">
         </div>
-          <div class="background">
+          <div className="background">
           <GetReview/>
           </div>
-          
+
     </Provider>
 
   );
