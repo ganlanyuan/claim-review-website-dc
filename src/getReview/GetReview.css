@@ -127,6 +127,7 @@
   color: #fff;
   background: hsl(219, 97%, 58%);
 }
+.passedTab + .tabunit:before { content: url('../tab-indicator-passed-after.svg'); }
 .passedTab + .passedTab:before { content: url('../tab-indicator-passed.svg'); }
 .passedTab + .activeTab:before { content: url('../tab-indicator-before.svg'); }
 .activeTab + .tabunit:before { content: url('../tab-indicator-after.svg'); }

@@ -11,6 +11,7 @@ import {
 } from 'antd';
 // import cat from '../backcat.png';
 import './component.css'
+import config from 'react-global-configuration'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'
@@ -77,7 +78,7 @@ class NegtiveReview extends Component {
           <h2 className="h2">We Are Here For You</h2>
           <p className="p">Dear customer, we are really sorry that our product can not fully meet your expectations and we are here to express our sincere apology. As you know that there are many different cases, please believe that our team has been working really hard to upgrade our products to work for all our customers.</p>
           <p className="p">Could you please send us an email to let us know what the problem is? We will resolve it to your satisfaction.</p>
-          <p className="p">Email address: <a href="mailto:LuelliforYOU@gmail.com">LuelliforYOU@gmail.com</a></p>
+          <p className="p">Email address: <a href={"mailto:" + config.get('email')}>{config.get('email')}</a></p>
         </div>
         <div className="row">
           <Button type="default" onClick={this.goback.bind(this)}>Go Back </Button>
