@@ -11,7 +11,6 @@ import {
 import Responsive from 'react-responsive-decorator';
 import './component.css'
 // import cat from '../backcat.png';
-import arrow from '../right-angle-white.svg';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'
@@ -81,13 +80,12 @@ class Feedback extends Component {
       <div className="content">
 
         <div className="row-lg">
-          <p className="p-l">How satisfied are you with our product?</p>
+          <p className="p-l"><strong>How satisfied are you with our product?</strong></p>
           <Rate tooltips={desc} onChange={this.handleRateChange} value={this.state.star} />
         </div>
 
         <div className="row">
-          <Button type="primary" className="btn-next" onClick={this.checkFeedback.bind(this)}>Next</Button>
-          <Button type="default" className="" onClick={this.goback.bind(this)}>Go Back </Button>
+          <Button className="btn-next" onClick={this.checkFeedback.bind(this)}>Next</Button>
        </div>
        </div>
     );

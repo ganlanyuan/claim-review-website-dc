@@ -136,7 +136,7 @@ class Benefit extends Component {
 
       <div className="content">
         <div className="row">
-          <p className="p p-l">Please select your benefit and enter your name, email to receive it.</p>
+          <p className="p p-l"><strong>Please select your benefit and enter your name, email to receive it.</strong></p>
         </div>
         <div className="row">
           <Radio.Group onChange={this.handleBenefitMethod} value={this.state.benefit}>

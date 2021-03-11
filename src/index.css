@@ -1,18 +1,18 @@
 @import '~antd/dist/antd.css';
+@import 'fonts/ACaslonPro/stylesheet.css';
 
 /*@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&display=swap');*/
 /*@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');*/
 /*@import Background from './background.jpg';*/
 html, body{
     /* box-sizing: content-box; */
     width: 100%;
     height: 100%;
-    /*font-family: 'Source Sans Pro', sans-serif;*/
-    font-family: 'Montserrat', sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
 body {
-  background: hsl(227, 71%, 91%);
+  background: #a87dad;
 }
 #root{
     /* box-sizing: content-box; */
@@ -26,8 +26,6 @@ body {
 }
 
 .overwapper{
-  background: url("./bg.svg") 0 0 repeat;
-
   -webkit-background-size: 323px 320px;
   -moz-background-size: 323px 320px;
   -o-background-size: 323px 320px;
