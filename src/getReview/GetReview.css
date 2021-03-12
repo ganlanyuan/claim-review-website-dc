@@ -13,7 +13,7 @@
 
 .desktop {
   width: 90%;
-  max-width: 1500;
+  max-width: 1300px;
   margin: auto;
   /*background: #fff; */
   /*border-radius: 10px; overflow: hidden;*/
@@ -21,7 +21,7 @@
 }
 
 .logoline {
-  padding: 20px 0 30px;
+  padding: 60px 0 30px;
   text-align: center;
 }
 .logoline img {
@@ -29,7 +29,7 @@
 }
 @media screen and (max-width: 1023px) {
   .logoline {
-    margin-bottom: 50px;
+    padding-bottom: 50px;
   }
 }
 
@@ -47,7 +47,7 @@
 @media screen and (min-width: 1024px) {
   .panel {
     padding: 3% 5% 10%;
-    padding-right: 38%;
+    padding-right: 39%;
     border-radius: 7px;
     overflow: hidden;
     background: #DEA9C8 url('../bg.jpg') 0 0 no-repeat;
