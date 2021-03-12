@@ -74,10 +74,10 @@ class PositiveReview extends Component {
           <Button type="primary" className="btn-highlight btn-round"  target="_blank" href={`https://www.amazon.${country}/review/create-review/?asin=${asin}%3A5`}>Click To Leave A 5-Star Review </Button>
         </p>
         <p className="p">Leave feedback for the products on Amazon and claim all offers!</p>
-        <p className="p">After the review is posted, you will receive one confirmation email from amazon, please forward Amazon’s confirmation email to <a href="mailto:LuelliforYOU@gmail.com">LuelliforYOU@gmail.com</a>, then you can unlock your benefit!</p>
+        <p className="p">After the review is posted, you will receive one confirmation email from amazon, please forward Amazon’s confirmation email to <a href={"mailto:" + config.get('email')}>{config.get('email')}</a>, then you can unlock your benefit!</p>
         <p className="p">We suggest you record the email address above for further reference. And here’s a sample of the confirmation email you’ll receive:</p>
         <p className="p"><img src={sample} className="screenshotamazon"/></p>
-        <p className="p">If you have any other questions about this survey, please contact <a href="mailto:LuelliforYOU@gmail.com">LuelliforYOU@gmail.com</a>.</p>
+        <p className="p">If you have any other questions about this survey, please contact <a href={"mailto:" + config.get('email')}>{config.get('email')}</a>.</p>
       </div>
     );
   }
