@@ -86,12 +86,12 @@ class Feedback extends Component {
 
         <div className="row">
           <Button type="primary" className="btn-next" onClick={this.checkFeedback.bind(this)}>Next</Button>
-          <Button type="default" className="" onClick={this.goback.bind(this)}>Go Back </Button>
        </div>
        </div>
     );
   }
 }
+          // <Button type="default" className="" onClick={this.goback.bind(this)}>Go Back </Button>
 
 function mapStateToProps(state){
   return{

@@ -9,7 +9,7 @@ img {
   font-weight: 600;
 }
 .highlight {
-  color: #FFD45C !important;
+  color: #FEFC9E !important;
 }
 a.highlight {
   font-style: normal !important;
@@ -96,6 +96,7 @@ p a { text-decoration: underline; }
   .searchline .ant-input {
     width: 100%;
     border-radius: 100px !important;
+    color: #444 !important;
     overflow: hidden;
   }
   .searchline .ant-btn {
@@ -105,6 +106,33 @@ p a { text-decoration: underline; }
     font-size: 0 !important;
     min-width: 70px;
     background: transparent url(../search.svg) 50% 50% no-repeat !important;
+  }
+}
+@media screen and (min-width: 500px) {
+  .searchline {
+    border: 2px solid #fff;
+    border-radius: 100px;
+  }
+  .searchline ::-webkit-input-placeholder {
+    color: inherit !important;
+  }
+  .searchline ::-moz-placeholder {
+    color: inherit !important;
+  }
+  .searchline :-ms-input-placeholder {
+    color: inherit !important;
+  }
+  .searchline :-moz-placeholder {
+    color: inherit !important;
+  }
+  .searchline .ant-input { background: transparent !important; }
+  .searchline .ant-btn {
+    margin-top: 3px;
+    margin-right: 3px;
+    border-radius: 100px !important;
+    font-size: 22px !important;
+    height: 54px !important;
+    text-transform: uppercase;
   }
 }
 .form-row { margin-bottom: 15px; }
@@ -118,9 +146,9 @@ p a { text-decoration: underline; }
 /* reset ant */
 .ant-input,
 .ant-btn {
-  border-radius: 0 !important;
+  border-radius: 100px !important;
   padding: 0 20px !important;
-  height: 60px !important;
+  height: 54px !important;
   font-size: 15px !important;
   font-weight: 600 !important;
   border: none !important;
@@ -129,7 +157,7 @@ p a { text-decoration: underline; }
   box-sizing: border-box;
 }
 .ant-input {
-  color: #D44F7C !important;
+  color: #fff !important;
   letter-spacing: 0.5px;
 }
 .ant-input:focus {
@@ -172,15 +200,23 @@ a.ant-btn { line-height: 60px !important; }
 .ant-rate-star-full .ant-rate-star-second { color: #FFD45C !important; }
 .ant-btn-default,
 .btn-next {
+  padding: 0 40px !important;
   color: #fff !important;
   text-transform: uppercase;
   font-weight: 600 !important;
-  height: 50px !important;
   border: 2px solid #fff !important;
   font-size: 18px !important;
   letter-spacing: 1px;
-  border-radius: 0 !important;
   background: none !important;
+}
+@media screen and (max-width: 767px) {
+  .btn-next {
+    border: 0 !important;
+    background: #D44F7C !important;
+  }
+  .btn-next:only-child {
+    width: 100%;
+  }
 }
 .btn-round {
   border-radius: 100px !important;

@@ -9,7 +9,7 @@ html, body{
     font-family: 'Montserrat', sans-serif;
 }
 body { background: #B2E1E9; }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
   body { background: #56C5D8; }
 }
 #root{

@@ -47,7 +47,7 @@
 }
 @media screen and (min-width: 1024px) {
   .panel {
-    padding: 3% 5% 7%;
+    padding: 5% 8%;
     -webkit-background-size: cover;
     background-size: cover;
   }
@@ -104,7 +104,7 @@
   .toptitle h1 { font-size: 37px; }
 }
 .tablist {
-  margin-bottom: 8%;
+  margin-bottom: 5%;
   text-align: center;
   scrollbar-width: none;
   -ms-overflow-style: -ms-autohiding-scrollbar;
