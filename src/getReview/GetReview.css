@@ -12,7 +12,8 @@
 }
 
 .desktop {
-  width: 1024px;
+  width: 90%;
+  max-width: 1500;
   margin: auto;
   /*background: #fff; */
   /*border-radius: 10px; overflow: hidden;*/
@@ -22,13 +23,33 @@
 .logoline {
   padding-top: 20px;
   text-align: center;
-  margin-bottom: 4%;
+  margin-bottom: 20px;
+}
+.logoline img {
+  max-width: 64%;
+}
+@media screen and (max-width: 1023px) {
+  .logoline {
+    margin-bottom: 50px;
+  }
 }
 
 .panel {
-  background: #fff;
-  -webkit-box-shadow: 0 24px 44px hsla(227, 70%, 17%, 0.17);
-  box-shadow: 0 24px 44px hsla(227, 70%, 17%, 0.17);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media screen and (min-width: 1024px) {
+  .panel {
+    padding-right: 35%;
+    border-radius: 7px;
+    overflow: hidden;
+    background: #DEA9C8 url('../bg.jpg') 0 0 no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -webkit-box-shadow: 0 5px 20px hsla(227, 0%, 0%, 0.4);
+    box-shadow: 0 5px 20px hsla(227, 0%, 0%, 0.4);
+  }
 }
 
 .thankyou {
@@ -59,79 +80,81 @@
 
 .toptitle {
   width: 100%;
-  height: 59px;
-  background: hsl(277, 85%, 63%);
-  margin-bottom: 30px;
-  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .toptitle h1 {
   margin: 0;
   color: #fff;
-  font-weight: bold;
-  line-height: 59px;
-  padding-left: 52px;
   font-size: 24px;
-  float: left;
+  font-weight: 300;
+  line-height: 1.2;
+  font-style: italic;
 }
-
+.toptitle h1 strong {
+  font-weight: bold;
+  font-style: normal;
+}
+@media screen and (max-width: 1023px) {
+  .toptitle h1 {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 600px) {
+  .toptitle h1 { font-size: 32px; }
+}
+@media screen and (min-width: 768px) {
+  .toptitle h1 { font-size: 37px; }
+}
 .tablist {
-  /*width: calc(100% - 120px);*/
-  /*overflow: hidden;*/
-  /*margin-left: 60px;*/
-  white-space: nowrap;
   text-align: center;
-  background: #fff;
-  overflow-x: auto;
-  overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 .tablist::-webkit-scrollbar { display: none; }
 
 .tabunit {
-  display: inline-block;
   padding: 12px 20px 10px;
   font-size: 16px;
-  line-height: 18px;
-  font-weight: 600;
-  color: #252525;
-  background: hsl(0, 0%, 92%);
-  /*width: calc(25% - 24px);*/
-  /*float: left;*/
-  /*margin-left: 12px;*/
-  /*margin-right: 12px;*/
-  /*border-bottom: solid 3px #ccc;*/
+  color: #D44F7C;
+  background: #fff;
 }
-.tabunit:not(:first-child) {
-  position: relative;
-  margin-left: 40px;
-}
-.tabunit:before {
-  content: url('../tab-indicator-default.svg');
-  position: absolute;
-  left: -40px;
-  top: 0;
-}
-.tabunit:first-child:before { display: none; }
 .activeTab {
   color: #fff;
-  background: hsl(277, 85%, 63%);
+  background: #D44F7C;
 }
-.passedTab {
-  color: #fff;
-  background: hsl(219, 97%, 58%);
+@media screen and (max-width: 599px) {
+  .tabunit:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
-.activeTab + .tabunit:before { content: url('../tab-indicator-after.svg'); }
-.passedTab + .activeTab:before { content: url('../tab-indicator-before.svg'); }
+@media screen and (min-width: 600px) {
+  .tablist {
+    white-space: nowrap;
+  }
+  .tabunit {
+    display: inline-block;
+  }
+  .tabunit:not(:first-child) {
+    position: relative;
+    margin-left: 40px;
+  }
+  .tabunit:before {
+    content: url('../tab-indicator-default.svg');
+    position: absolute;
+    left: -40px;
+    top: 0;
+  }
+  .tabunit:first-child:before { display: none; }
+  .passedTab {
+    color: #fff;
+    background: #D44F7C;
+  }
+  .activeTab + .tabunit:before { content: url('../tab-indicator-after.svg'); }
+  .passedTab + .activeTab:before { content: url('../tab-indicator-before.svg'); }
+}
 
-/*.activeTab p {
-  color: rgb(252, 92, 15);
-}
-*/
-.feedwrapper {
-  text-align: left;
-}
+.feedwrapper { text-align: left; }
 
 .clear {
   width: 100%;
@@ -146,42 +169,21 @@
   width: 100%;
   font-size: 15px;
 }
+.panel .ant-card-type-inner .ant-card-body {
+  padding: 16px 0;
+}
 
 @media screen and (max-width: 768px) {
-  ant-card-type-inner .ant-card-body {
-    padding: 16px 24px;
+  .ant-card-type-inner .ant-card-body {
     padding-bottom: 300px;
   }
-
-  .backimg {
-    display: block;
-  }
-
 
   .feedbox {
     padding-bottom: 10px;
   }
 
   .desktop {
-    width: calc(100% - 20px);
-    margin-left: 10px;
+    width: 80%;
     margin-bottom: 30px;
   }
-
-  /*.tablist {
-    width: calc(100% - 40px);
-    margin-left: 20px;
-  }*/
-
-  .toptitle h1 {
-    font-size: 20px;
-    padding-left: 24px;
-  }
-
-/*  .tabunit {
-    width: calc(33.3% - 12px);
-    margin-left: 6px;
-    margin-right: 6px;
-  }
-*/
 }

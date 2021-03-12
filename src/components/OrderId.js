@@ -60,10 +60,7 @@ class OrderId extends Component {
       <div className = "content">
 
       <div className="row">
-        <p className="p-l">Please enter your amazon order ID of this product here:</p>
-      </div>
-      <div className="row">
-        <p className="small quiet">ORDER ID example: <strong>123-1234567-1234567</strong>.</p>
+        <p className="">Please enter your <strong>Amazon ORDER ID</strong> of this product here: <br/><strong>ORDER ID</strong> example: <strong>123-1234567-1234567</strong>.</p>
         <div className="searchline">
           <Input
             onChange = {

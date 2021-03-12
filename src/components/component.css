@@ -7,12 +7,16 @@ img {
   font-weight: bold;
 }
 .highlight {
-  color: hsl(277, 85%, 63%);
+  color: #D44F7C;
 }
 .center-align { text-align: center; }
 p {
   line-height: 1.6;
   font-size: 16px;
+}
+.panel a {
+  color: inherit;
+  font-style: italic;
 }
 p a { text-decoration: underline; }
 .p { margin: 1.6em 0; }
@@ -36,8 +40,14 @@ p a { text-decoration: underline; }
   display: -o-flex;
   display: flex;
 }
+@media screen and (min-width: 600px) {
+}
 .searchline .ant-input,
-.searchline .ant-btn { flex: 1 1 auto; }
+.searchline .ant-btn {
+  flex: 1 1 auto;
+  border: 0;
+  border-radius: 0;
+}
 .searchline .ant-input {
   width: 70%;
   flex: 3 1 auto;
@@ -69,7 +79,7 @@ p a { text-decoration: underline; }
   padding: 0 15px !important;
   height: 48px !important;
   font-size: 15px !important;
-  border-color: hsl(219, 97%, 58%) !important;
+  border-color: #D44F7C !important;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -77,10 +87,9 @@ p a { text-decoration: underline; }
 .ant-btn {
   padding: 0 25px !important;
   font-weight: bold !important;
-  text-transform: uppercase;
   color: #fff !important;
   border: 0 !important;
-  background: hsl(219, 97%, 58%) !important;
+  background: #D44F7C !important;
 }
 a.ant-btn { line-height: 48px !important; }
 .ant-btn + .ant-btn { margin-left: 10px; }
@@ -92,7 +101,7 @@ a.ant-btn { line-height: 48px !important; }
 }
 .ant-btn-default {
   color: #000 !important;
-  background: hsl(0, 0%, 92%) !important;
+  background: #fff !important;
 }
 .anticon-star { margin-top: 0 !important; }
 .anticon-star svg {
@@ -100,9 +109,9 @@ a.ant-btn { line-height: 48px !important; }
   height: 26px !important;
 }
 .ant-rate-star:not(:last-child) { margin-right: 10px !important; }
-.ant-rate-star-first, .ant-rate-star-second { color: hsl(0, 0%, 92%) !important; }
+.ant-rate-star-first, .ant-rate-star-second { color: #fff !important; }
 .ant-rate-star-full .ant-rate-star-first,
-.ant-rate-star-full .ant-rate-star-second { color: hsl(277, 85%, 63%) !important; }
+.ant-rate-star-full .ant-rate-star-second { color: #D44F7C !important; }
 .btn-next:after {
   content: url('../right-angle-white.svg');
   display: inline-block;
@@ -115,21 +124,24 @@ a.ant-btn { line-height: 48px !important; }
   padding-left: 2.67em !important;
   padding-right: 2.67em !important;
 }
-.btn-highlight { background: hsl(277, 85%, 63%) !important; }
-.ant-card { color: #000 !important; }
+.btn-highlight { background: #D44F7C !important; }
+.ant-card {
+  color: #fff !important;
+  background: transparent !important;
+}
 .content .ant-radio-inner,
 .content .ant-checkbox-inner {
   width: 20px;
   height: 20px;
-  border-color: hsl(219, 97%, 58%);
+  border-color: #D44F7C;
 }
 .content .ant-radio-checked .ant-radio-inner,
-.content .ant-checkbox-checked:after { border-color: hsl(219, 97%, 58%); }
-.content .ant-radio-inner:after { background-color: hsl(219, 97%, 58%); }
+.content .ant-checkbox-checked:after { border-color: #D44F7C; }
+.content .ant-radio-inner:after { background-color: #D44F7C; }
 .content .ant-checkbox-wrapper:hover .ant-checkbox-inner,
 .content .ant-checkbox:hover .ant-checkbox-inner,
 .content .ant-checkbox-input:focus + .ant-checkbox-inner {
-  border-color: hsl(219, 97%, 58%);
+  border-color: #D44F7C;
 }
 .content .ant-radio-wrapper:hover .ant-radio,
 .content .ant-radio:hover .ant-radio-inner,
@@ -137,7 +149,7 @@ a.ant-btn { line-height: 48px !important; }
 .content .ant-checkbox-wrapper:hover .ant-checkbox,
 .content .ant-checkbox:hover .ant-checkbox-inner,
 .content .ant-checkbox-input:focus + .ant-checkbox-inner {
-  border-color: hsl(219, 97%, 58%);
+  border-color: #D44F7C;
 }
 .content .ant-radio-wrapper {
   display: inline-block;
@@ -158,7 +170,7 @@ a.ant-btn { line-height: 48px !important; }
 }
 .content .ant-checkbox-checked .ant-checkbox-inner::after {
   border-width: 0 1px 1px 0;
-  border-color: hsl(219, 97%, 58%);
+  border-color: #D44F7C;
 }
 .content span.ant-radio + *,
 .content span.ant-checkbox + span {
