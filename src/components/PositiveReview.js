@@ -69,15 +69,15 @@ class PositiveReview extends Component {
         <h2 className="h2">Unlock Your Benefit</h2>
         <p className="p">Dear customer, thank you so much for your precious feedback about our product! We have recorded it and will continue to improve our product according to your suggestions!</p>
         <p className="p">We are a newly start up business, with several young staff working together, trying everything possible to provide the best products and the most satisfying services to our customers. But as you may not know, low ratings might cause Amazon to limit the selling rights of our new store, so we will never have any chance to develop and improve our business any more.</p>
-        <p className="p">In this case, we want to kindly ask, could you do us a favor to <strong className="highlight">leave us a 5-star review on Amazon</strong>? It will greatly help us to serve you better!</p>
+        <p className="p">In this case, we want to kindly ask, could you do us a favor to <strong className="highlight">leave us a 5-star review on Amazon? It will greatly help us to serve you better!</strong></p>
         <p className="p center-align">
           <Button type="primary" className="btn-highlight btn-round"  target="_blank" href={`https://www.amazon.${country}/review/create-review/?asin=${asin}%3A5`}>Click To Leave A 5-Star Review </Button>
         </p>
-        <p className="p">Leave feedback for the products on Amazon and claim all offers!</p>
-        <p className="p">After the review is posted, you will receive one confirmation email from amazon, please forward Amazon’s confirmation email to <a href="mailto:LuelliforYOU@gmail.com">LuelliforYOU@gmail.com</a>, then you can unlock your benefit!</p>
+        <p className="center-align small">Leave feedback for the products on Amazon and claim all offers!</p>
+        <p className="p">After the review is posted, you will receive one confirmation email from amazon, please forward Amazon’s confirmation email to <a className="highlight" href={"mailto:" + config.get('email')}><strong>{config.get('email')}</strong></a>, then you can unlock your benefit!</p>
         <p className="p">We suggest you record the email address above for further reference. And here’s a sample of the confirmation email you’ll receive:</p>
         <p className="p"><img src={sample} className="screenshotamazon"/></p>
-        <p className="p">If you have any other questions about this survey, please contact <a href="mailto:LuelliforYOU@gmail.com">LuelliforYOU@gmail.com</a>.</p>
+        <p className="p">If you have any other questions about this survey, please contact <a className="highlight" href={"mailto:" + config.get('email')}><strong>{config.get('email')}</strong></a>.</p>
       </div>
     );
   }

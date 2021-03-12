@@ -134,8 +134,8 @@ class Benefit extends Component {
     return (
 
       <div className="content">
-        <div className="row">
-          <p className="p p-l">Please select your benefit and enter your name, email to receive it.</p>
+        <div className="row-lg">
+          <h2 className="h2">Please select your benefit and enter your name, email to receive it.</h2>
         </div>
         <div className="row">
           <Radio.Group onChange={this.handleBenefitMethod} value={this.state.benefit}>
@@ -224,7 +224,7 @@ class Benefit extends Component {
       </div>
 
       <div className="row-lg">
-        <p className="x-small quiet">{config.get('source')} is the sole owner of information collected from its customers. We will not sell or share this information with third parties in ways different from what is disclosed in our Privacy Policy.</p>
+        <p className="small">{config.get('source')} is the sole owner of information collected from its customers. We will not sell or share this information with third parties in ways different from what is disclosed in our Privacy Policy.</p>
       </div>
 
       <div className="row">

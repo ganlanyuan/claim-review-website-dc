@@ -80,7 +80,7 @@ class Feedback extends Component {
       <div className="content">
 
         <div className="row-lg">
-          <p className="p-l">How satisfied are you with our product?</p>
+          <p className="p-l"><strong>How satisfied are you with our product?</strong></p>
           <Rate tooltips={desc} onChange={this.handleRateChange} value={this.state.star} />
         </div>
 

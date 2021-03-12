@@ -21,9 +21,8 @@
 }
 
 .logoline {
-  padding-top: 20px;
+  padding: 20px 0 30px;
   text-align: center;
-  margin-bottom: 20px;
 }
 .logoline img {
   max-width: 64%;
@@ -39,9 +38,16 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .panel {
+    max-width: 632px;
+    margin: 0 auto;
+  }
+}
 @media screen and (min-width: 1024px) {
   .panel {
-    padding-right: 35%;
+    padding: 3% 5% 10%;
+    padding-right: 38%;
     border-radius: 7px;
     overflow: hidden;
     background: #DEA9C8 url('../bg.jpg') 0 0 no-repeat;
@@ -80,7 +86,7 @@
 
 .toptitle {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 5%;
 }
 
 .toptitle h1 {
@@ -107,6 +113,7 @@
   .toptitle h1 { font-size: 37px; }
 }
 .tablist {
+  margin-bottom: 8%;
   text-align: center;
   scrollbar-width: none;
   -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -114,7 +121,7 @@
 .tablist::-webkit-scrollbar { display: none; }
 
 .tabunit {
-  padding: 12px 20px 10px;
+  padding: 19px 10px 17px 18px;
   font-size: 16px;
   color: #D44F7C;
   background: #fff;
@@ -123,33 +130,37 @@
   color: #fff;
   background: #D44F7C;
 }
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 767px) {
+  .tabunit { padding: 15px 20px 13px; }
   .tabunit:not(:last-child) {
     margin-bottom: 10px;
   }
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .tablist {
     white-space: nowrap;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
   }
   .tabunit {
     display: inline-block;
+    flex: 1 1 auto;
   }
+  .tabunit:last-child { padding-right: 18px; }
   .tabunit:not(:first-child) {
     position: relative;
-    margin-left: 40px;
+    margin-left: 28px;
   }
   .tabunit:before {
     content: url('../tab-indicator-default.svg');
     position: absolute;
-    left: -40px;
+    left: -28px;
     top: 0;
   }
   .tabunit:first-child:before { display: none; }
-  .passedTab {
-    color: #fff;
-    background: #D44F7C;
-  }
   .activeTab + .tabunit:before { content: url('../tab-indicator-after.svg'); }
   .passedTab + .activeTab:before { content: url('../tab-indicator-before.svg'); }
 }
@@ -183,7 +194,7 @@
   }
 
   .desktop {
-    width: 80%;
+    width: 82%;
     margin-bottom: 30px;
   }
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="28px" height="71px" viewBox="0 0 28 71" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="28px" height="60px" viewBox="0 0 28 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
     <title>tab-indicator-after</title>
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="tab-indicator-after">
-            <polygon id="Path" fill="#FFFFFF" points="28 0 7 0 28 35.5 7 71 28 71 28 35.5"></polygon>
-            <polygon id="Path" fill="#D44F7C" fill-rule="nonzero" points="0 0 21 35.5 0 71"></polygon>
+            <polygon id="Path" fill="#FFFFFF" points="28 0 7 0 28 30 7 60 28 60 28 30"></polygon>
+            <polygon id="Path" fill="#D44F7C" fill-rule="nonzero" points="0 0 21 30 0 60"></polygon>
         </g>
     </g>
 </svg>
