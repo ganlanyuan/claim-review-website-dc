@@ -25,7 +25,7 @@ import axios from 'axios';
 import styles from './GetReview.css'
 import REMOTEHOST from '../remote-host';
 
-import logo from '../logo.svg'
+import logo from '../logo.png'
 
 
 
@@ -102,10 +102,11 @@ class GetReview extends Component {
         <div className="logoline">
           <img src={logo}/>
         </div>
+        <div className="toptitle">
+          <h1>Claim Your Benefit Now!!!</h1>
+        </div>
         <div className="panel">
-          <div className="toptitle">
-            <h1>Claim Your Benefit Now!!!</h1>
-          </div>
+
           <div className="tablist">
             <div id="order" className={this.props.step_info.length > 1 ? "tabunit passedTab" : "tabunit activeTab" }>
               Your Order
@@ -120,7 +121,6 @@ class GetReview extends Component {
               Unlock Benefit
             </div>
           </div>
-
           <Card
             type="inner"
             headStyle={headStyle}>

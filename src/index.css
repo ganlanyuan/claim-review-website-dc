@@ -1,16 +1,24 @@
 @import '~antd/dist/antd.css';
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap');
 html, body{
     /* box-sizing: content-box; */
     width: 100%;
     height: 100%;
     /*font-family: 'Source Sans Pro', sans-serif;*/
-    font-family: 'Montserrat', sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
-body { background: #B2E1E9; }
+body { background: #64ABDF 0 100% no-repeat; }
 @media screen and (max-width: 1023px) {
-  body { background: #56C5D8; }
+  body { background: #025CAA; }
+}
+@media screen and (min-width: 1024px) {
+  body {
+    background-image: url('./bg.jpg');
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+    background-attachment: fixed;
+  }
 }
 #root{
     /* box-sizing: content-box; */

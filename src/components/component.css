@@ -63,76 +63,32 @@ p a { text-decoration: underline; }
 .row-lg:not(:last-child) { margin-bottom: 45px; }
 .searchline {
   margin: 12px 0;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
+  position: relative;
 }
-.searchline .ant-input,
-.searchline .ant-btn {
+.searchline .ant-input {
   flex: 1 1 auto;
   border: 0;
   border-radius: 0;
 }
 .searchline .ant-input {
-  width: 70%;
-  flex: 3 1 auto;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  width: 100%;
+  border-radius: 100px !important;
+  background: #fff url(../search.svg) calc(100% - 20px) 50% no-repeat !important;
+  -webkit-background-size: 23px auto !important;
+  background-size: 23px auto !important;
 }
 .searchline .ant-btn {
-  width: 30%;
-  flex: 1 0 auto;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-@supports (display: flex) {
-  .searchline .ant-input,
-  .searchline .ant-btn { width: auto; }
-}
-@media screen and (max-width: 499px) {
-  .searchline { position: relative; }
-  .searchline .ant-input {
-    width: 100%;
-    border-radius: 100px !important;
-    color: #444 !important;
-    overflow: hidden;
-  }
-  .searchline .ant-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-size: 0 !important;
-    min-width: 70px;
-    background: transparent url(../search.svg) 50% 50% no-repeat !important;
-  }
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #eee !important;
+  color: #444 !important;
+  text-transform: uppercase;
 }
 @media screen and (min-width: 500px) {
-  .searchline {
-    border: 2px solid #fff;
-    border-radius: 100px;
-  }
-  .searchline ::-webkit-input-placeholder {
-    color: inherit !important;
-  }
-  .searchline ::-moz-placeholder {
-    color: inherit !important;
-  }
-  .searchline :-ms-input-placeholder {
-    color: inherit !important;
-  }
-  .searchline :-moz-placeholder {
-    color: inherit !important;
-  }
-  .searchline .ant-input { background: transparent !important; }
-  .searchline .ant-btn {
-    margin: 3px;
-    margin-left: 0;
-    border-radius: 100px !important;
-    font-size: 22px !important;
-    height: 54px !important;
-    text-transform: uppercase;
+  .searchline .ant-input {
+    padding-left: 60px !important;
+    background-position: 20px !important;
   }
 }
 .form-row { margin-bottom: 15px; }
@@ -157,7 +113,7 @@ p a { text-decoration: underline; }
   box-sizing: border-box;
 }
 .ant-input {
-  color: #fff !important;
+  /*color: #fff !important;*/
   letter-spacing: 0.5px;
 }
 .ant-input:focus {
@@ -209,11 +165,11 @@ a.ant-btn { line-height: 60px !important; }
   letter-spacing: 1px;
   background: none !important;
 }
+.btn-next {
+  border: 0 !important;
+  background: #D44F7C !important;
+}
 @media screen and (max-width: 767px) {
-  .btn-next {
-    border: 0 !important;
-    background: #D44F7C !important;
-  }
   .btn-next:only-child {
     width: 100%;
   }
@@ -225,10 +181,10 @@ a.ant-btn { line-height: 60px !important; }
 }
 .btn-highlight {
   background: #D44F7C !important;
-  border-radius: 0 !important;
+  border-radius: 100px !important;
   font-size: 18px !important;
   font-style: normal !important;
-  padding: 0 30px !important;
+  padding: 0 40px !important;
 }
 .ant-card {
   color: #fff !important;
