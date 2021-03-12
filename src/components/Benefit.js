@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Input, Radio,Checkbox, Icon, Row, Button, Col,message,notification } from 'antd';
 import Responsive from 'react-responsive-decorator';
-// import cat from '../backcat.png';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'

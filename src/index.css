@@ -1,9 +1,6 @@
 @import '~antd/dist/antd.css';
 
-/*@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600&display=swap');*/
-/*@import url('https://fonts.googleapis.com/css2?family=Patua+One&display=swap');*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-/*@import Background from './background.jpg';*/
 html, body{
     /* box-sizing: content-box; */
     width: 100%;

@@ -9,7 +9,6 @@ import {
   Radio,
   Icon,
 } from 'antd';
-// import cat from '../backcat.png';
 import './component.css'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'

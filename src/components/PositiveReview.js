@@ -8,7 +8,6 @@ import {
   notification,
   Col,
 } from 'antd';
-// import cat from '../backcat.png';
 import sample from '../sample.jpg';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
