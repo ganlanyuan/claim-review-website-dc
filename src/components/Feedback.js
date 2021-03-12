@@ -10,7 +10,6 @@ import {
 } from 'antd';
 import Responsive from 'react-responsive-decorator';
 import './component.css'
-// import cat from '../backcat.png';
 import arrow from '../right-angle-white.svg';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'

@@ -23,8 +23,6 @@ body {
 }
 
 .overwapper{
-  background: url("./bg.svg") 0 0 repeat;
-
   -webkit-background-size: 323px 320px;
   -moz-background-size: 323px 320px;
   -o-background-size: 323px 320px;

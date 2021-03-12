@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import './component.css'
-import cat from '../backcat.png';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'

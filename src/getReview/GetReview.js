@@ -25,7 +25,7 @@ import axios from 'axios';
 import styles from './GetReview.css'
 import REMOTEHOST from '../remote-host';
 
-import logo from '../logo.png'
+import logo from '../logo.svg'
 
 
 

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './component.css'
-import cat from '../backcat.png';
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import { ActionCreators } from '../actions'
@@ -41,12 +40,11 @@ class SuccessBanner extends Component {
 
           <li><label className="labela">Usage Period:</label> <p>{this.props.order_info['period']}</p></li>
           <li><label className="labela">Your Rating:</label><Rate tooltips={desc} disabled={true}  value={this.props.order_info['star']} /></li>
-         
+
 
           <li>{this.getReward()}</li>
         </ul>
         </div>
-        {this.props.order_info['star']>=4 ? <div className="backimg forthanking"><img src={cat}/></div> : null}
 
       </div>
     )

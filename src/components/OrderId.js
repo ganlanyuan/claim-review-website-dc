@@ -4,7 +4,6 @@ import {
 } from 'antd';
 import Responsive from 'react-responsive-decorator'
 import config from 'react-global-configuration'
-// import cat from '../backcat.png'
 import './component.css'
 
 import {connect} from 'react-redux'
