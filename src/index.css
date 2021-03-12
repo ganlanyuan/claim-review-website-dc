@@ -8,8 +8,9 @@ html, body{
     /*font-family: 'Source Sans Pro', sans-serif;*/
     font-family: 'Montserrat', sans-serif;
 }
-body {
-  background: #DEA9C8;
+body { background: #B2E1E9; }
+@media screen and (max-width: 767px) {
+  body { background: #56C5D8; }
 }
 #root{
     /* box-sizing: content-box; */

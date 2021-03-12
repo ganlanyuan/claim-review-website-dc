@@ -22,11 +22,6 @@ p {
   line-height: 1.6;
   font-size: 16px;
 }
-.panel a {
-  color: inherit;
-  font-style: italic;
-}
-.panel a:hover { color: inherit; }
 p a { text-decoration: underline; }
 .p { margin: 1.6em 0; }
 .p:first-child { margin-top: 0; }
@@ -36,37 +31,34 @@ p a { text-decoration: underline; }
 .small { font-size: 14px; }
 .x-small { font-size: 12px; }
 ::-webkit-input-placeholder {
-  font-weight: 600;
-  color: #DEA9C8 !important;
+  font-weight: 300;
   letter-spacing: 0.5px;
   font-style: italic;
   font-size: 15px;
 }
 ::-moz-placeholder {
-  font-weight: 600;
-  color: #DEA9C8 !important;
+  font-weight: 300;
   letter-spacing: 0.5px;
   font-style: italic;
   font-size: 15px;
 }
 :-ms-input-placeholder {
-  font-weight: 600;
-  color: #DEA9C8 !important;
+  font-weight: 300;
   letter-spacing: 0.5px;
   font-style: italic;
   font-size: 15px;
 }
 :-moz-placeholder {
-  font-weight: 600;
-  color: #DEA9C8 !important;
+  font-weight: 300;
   letter-spacing: 0.5px;
   font-style: italic;
   font-size: 15px;
 }
-/*.content {
-  max-width: 500px;
-  margin: 10% auto;
-}*/
+.content {
+  padding-bottom: 8%;
+  /*max-width: 500px;
+  margin: 10% auto;*/
+}
 .row:not(:last-child) { margin-bottom: 20px; }
 .row-lg:not(:last-child) { margin-bottom: 45px; }
 .searchline {
@@ -76,8 +68,6 @@ p a { text-decoration: underline; }
   display: -ms-flex;
   display: -o-flex;
   display: flex;
-}
-@media screen and (min-width: 600px) {
 }
 .searchline .ant-input,
 .searchline .ant-btn {
@@ -103,12 +93,17 @@ p a { text-decoration: underline; }
 }
 @media screen and (max-width: 499px) {
   .searchline { position: relative; }
-  .searchline .ant-input { width: 100%; }
+  .searchline .ant-input {
+    width: 100%;
+    border-radius: 100px !important;
+    overflow: hidden;
+  }
   .searchline .ant-btn {
     position: absolute;
     right: 0;
     top: 0;
     font-size: 0 !important;
+    min-width: 70px;
     background: transparent url(../search.svg) 50% 50% no-repeat !important;
   }
 }

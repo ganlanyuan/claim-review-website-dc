@@ -104,7 +104,7 @@ class GetReview extends Component {
         </div>
         <div className="panel">
           <div className="toptitle">
-            <h1>Claim <strong>Your Benefit</strong> Now!!!</h1>
+            <h1>Claim Your Benefit Now!!!</h1>
           </div>
           <div className="tablist">
             <div id="order" className={this.props.step_info.length > 1 ? "tabunit passedTab" : "tabunit activeTab" }>
