@@ -64,6 +64,11 @@ export const step_info = (state = ['order'],action) => {
 var user_state = {
   userName:'',
   email:'',
+  streetAddress: '',
+  streetAddress2: '',
+  city: '',
+  state: '',
+  zipCode: ''
 }
 
 export const user_info = (state = user_state,action) => {
@@ -72,6 +77,11 @@ export const user_info = (state = user_state,action) => {
         return Object.assign({},state,{
          userName: action.userName,
          email: action.email,
+         streetAddress: action.streetAddress,
+         streetAddress2: action.streetAddress2,
+         city: action.city,
+         state: action.state,
+         zipCode: action.zipCode
        })
     default:
         return state
