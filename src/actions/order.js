@@ -138,11 +138,16 @@ export function deleteImagePath(path){
 
 
 
-export function setUserInfo(userName,email){
+export function setUserInfo(userName,email,streetAddress,streetAddress2,city,state,zipCode){
   return{
     type: types.SET_USER_INFO,
     userName:userName,
-    email:email
+    email:email,
+    streetAddress:streetAddress,
+    streetAddress2:streetAddress2,
+    city:city,
+    state:state,
+    zipCode:zipCode
   }
 }
 
@@ -173,12 +178,19 @@ function get_feedback_url(getState){
   var seller_id = mystate.order_info['seller_id']
   var reward = mystate.order_info['reward'] ? mystate.order_info['reward'] : config.get('amount')
   var benefit = mystate.order_info['benefit']
-
   var path = mystate.order_info['imagelist'].map((img)=>{return img.response.fileName})
   var userName = mystate.user_info['userName']
   var email = mystate.user_info['email']
 
-  var request_url = `${remoteUrl}/graphql?query=mutation%20addRedeem%20{addRedeem(requestDate:"${today}",seller_id:"${seller_id}",AmazonOrderId:"${order_id}",asin:"${asin}",country:"${country}",source:"${config.get('source')}",amount:"${reward}",usingTime:"${period}",star:${star},how_to_help:"${benefit}",name:"${userName}",email:"${email}",newsletter:true)%20{id}}`
+  var streeAddress = mystate.user_info['streetAddress']
+  var streetAddress2 = mystate.user_info['streetAddress2']
+  var city = mystate.user_info['city']
+  var state = mystate.user_info['state']
+  var zipCode = mystate.user_info['zipCode']
+  var new_address = streeAddress.concat( " ", streetAddress2, "<br>", city, "<br>", state, " ", zipCode);
+
+
+  var request_url = `${remoteUrl}/graphql?query=mutation%20addRedeem%20{addRedeem(requestDate:"${today}",seller_id:"${seller_id}",AmazonOrderId:"${order_id}",asin:"${asin}",country:"${country}",source:"${config.get('source')}",amount:"${reward}",usingTime:"${period}",star:${star},how_to_help:"${benefit}",name:"${userName}",email:"${email}",new_address:"${new_address}",newsletter:true)%20{id}}`
   return request_url
 
 }

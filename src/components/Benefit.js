@@ -13,6 +13,11 @@ class Benefit extends Component {
       benefit:this.props.order_info['benefit'],
       userName:this.props.user_info['userName'],
       email:this.props.user_info['email'],
+      streetAddress:this.props.user_info['streetAddress'],
+      streetAddress2:this.props.user_info['streetAddress2'],
+      city:this.props.user_info['city'],
+      state:this.props.user_info['state'],
+      zipCode:this.props.user_info['zipCode'],
     }
   }
 
@@ -29,39 +34,76 @@ class Benefit extends Component {
     var seller_id = this.props.order_info['seller_id']
     var asin = this.props.order_info['items'][0]['ASIN']
     var country = this.props.order_info['items'][0]['country']
-
     var order_id = this.props.order_info['AmazonOrderId']
-    if (this.state.benefit !== "" &&
-        this.state.streetAddress !== "" &&
+
+    if (this.state.benefit == "Amazon Gift Card") {
+        if(
+          this.state.email !== "" &&
+          this.state.userName !== ""){
+        if (this.validateEmail(this.state.email)) {
+
+          this.props.setUserInfo(this.state.userName,this.state.email,this.state.streetAddress,this.state.streetAddress2,this.state.city,this.state.state,this.state.zipCode)
+          this.props.setBenefit(this.state.benefit)
+          this.props.send_feedback()
+          this.props.gotoGetBenefit()
+        } else {
+          notification['error']({
+            message: 'Check your email!',
+            description:
+              <div>
+                <p>Please check your email, the format is not right.</p>
+              </div>
+          });
+        }
+      } else {
+        notification['error']({
+          message: 'Notification Title',
+          description:
+            <div><p>Please check if you have fulfill the username, email</p>
+            </div>
+        });
+      }
+
+    } else if(this.state.benefit == "Same Free Product") {
+      if (this.state.streetAddress !== "" &&
         // this.state.streetAddress2 !== "" &&
         this.state.city !== "" &&
         this.state.state !== "" &&
         this.state.zipCode !== "" &&
         this.state.email !== "" &&
         this.state.userName !== ""){
-      if (this.validateEmail(this.state.email)) {
+        if (this.validateEmail(this.state.email)) {
 
-        this.props.setUserInfo(this.state.userName,this.state.email)
-        this.props.setBenefit(this.state.benefit)
-        this.props.send_feedback()
-        this.props.gotoGetBenefit()
+          this.props.setUserInfo(this.state.userName,this.state.email,this.state.streetAddress,this.state.streetAddress2,this.state.city,this.state.state,this.state.zipCode)
+          this.props.setBenefit(this.state.benefit)
+          this.props.send_feedback()
+          this.props.gotoGetBenefit()
+        } else {
+          notification['error']({
+            message: 'Check your email!',
+            description:
+              <div>
+                <p>Please check your email, the format is not right.</p>
+              </div>
+          });
+        }
       } else {
         notification['error']({
-          message: 'Check your email!',
+          message: 'Notification Title',
           description:
-            <div>
-              <p>Please check your email, the format is not right.</p>
+            <div><p>Please check if you have fulfill the username, email, or address information</p>
             </div>
         });
       }
     } else {
       notification['error']({
-        message: 'Notification Title',
-        description:
-          <div><p>Please check if you have fulfill the user name, email, and benefit method</p>
-          </div>
+          message: 'Notification Title',
+          description:
+            <div><p>Please check one of the benefit option</p>
+            </div>
       });
     }
+
   }
 
 
@@ -121,7 +163,8 @@ class Benefit extends Component {
 
   handleCustomersClub= e =>{
     this.setState({
-      benefit: e.target.checked,
+      customerClub: e.target.checked,
+      // TODO, 暂时未处理这个数据
     });
   }
 
